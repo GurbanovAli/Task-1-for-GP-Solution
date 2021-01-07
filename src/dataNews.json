@@ -1,0 +1,37 @@
+[{
+  "id": 1,
+  "title": "React Native: The First Choice of Mobile App Developers and Businesses",
+  "theme": "IT",
+  "date": "29.12.2020",
+  "description": "Let’s discuss why mobile app developers select React Native for application development over other cross-platform frameworks. While few users continue to work with the Native development approach, those who want to succeed in their business have started exploring new opportunities. One such occasion in this technically advanced world is to turn toward cross - platform frameworks."
+}, {
+  "id": 2,
+  "title": "Android interop with SWIG (a guide). From simple to weird. Part 1 — simple",
+  "theme": "sad",
+  "date": "01.11.2020",
+  "description": "SWIG is a tool for generating cross-language interfaces - it provides interoperability of C++ and other languages (C++ and Java in our case). SWIG just simplifies and automizes cross - language interaction; otherwise, you may end up with thousands of lines of handwritten JNI code - but SWIG covers this for you."
+}, {
+  "id": 3,
+  "title": "7 Best Practices Every Budding React.JS Developer Must Follow to Excel",
+  "theme": "IT",
+  "date": "15.10.2020",
+  "description": "With the advancement in web technology, the entire globe is sliding towards the online tech sphere. The globe around us is going tech-centric day by day and thus the demand for front-end designers and developers also."
+}, {
+  "id": 4,
+  "title": "ONLYOFFICE Community Server: how bugs contribute to the emergence of security problems",
+  "theme": "bad",
+  "date": "17.12.2020",
+  "description": "Server-side network applications rarely get the chance to join the ranks of our reviews of errors found in open source software. This is probably due to their popularity. After all, we try to pay attention to the projects that readers themselves offer us. At the same time, servers often perform very important functions, but their performance and benefits remain invisible to most users. So, by chance, the code of ONLYOFFICE Community Server was checked."
+}, {
+  "id": 5,
+  "title": "Startups going global: a guide to Product Hunt",
+  "theme": "IT",
+  "date": "02.01.2021",
+  "description": "Product Hunt is a Y-combinator backed discovery platform, founded by Ryan Hoover in 2013. Conceived as an email list, it has gone on to become one of the most popular directories, raised $7.5 million in backing and was acquired by AngelList — a social network for entrepreneurs — in December 2016."
+}, {
+  "id": 6,
+  "title": "Don't spoil Desktop Software Engineers with your Mobile First solutions, think about it",
+  "theme": "IT",
+  "date": "25.08.2020",
+  "description": "Once upon a time, my girlfriend started using Instagram. She asked me to sign up for it and subscribe to it. I tried — I couldn't do it because you couldn't register at Instagram from a desktop computer. I then thought — how weird people are. Well, what kind of fool would make a software product that can't be used with a normal computer?"
+}]

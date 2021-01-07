@@ -1,0 +1,39 @@
+.edit-form-block {
+  width: 70em;
+  height: 16em;
+  margin: 2em auto;
+  padding: 0.2em 2em;
+  display: grid;
+  background-color: #fff;
+  border-radius: 0.5em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: initial;
+  list-style: none;
+  font-size: 0.9em;
+  font-weight: 550;
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+.edit-form-block:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.edit-form-block input {
+  width: 18em;
+  height: 2.1em;
+  margin: auto 1em;
+  border: 2px solid;
+  border-radius: 0.2em;
+  border-color: #2B4F81;
+}
+
+.edit-form-block:last-child(3) {
+  width: 30em;
+}

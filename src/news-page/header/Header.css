@@ -1,0 +1,44 @@
+header{
+  width:88.5em;
+  height: 6em;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: #4b77be;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0.2em;
+}
+
+header h1 {
+  color: #fff;
+}
+
+header div {
+  width: 10em;
+  margin: auto 0;
+}
+
+header button {
+  width: 2.8em;
+  height: 2.4em;
+  margin: 0 0.5em;
+  background-color: #fff;
+  color:#2B4F81;
+  border: 1px solid;
+  border-color: #2B4F81;
+  border-radius: 0.2em;
+  font-weight:600;
+  cursor: pointer;
+}
+
+header button:hover{
+  background-color: #2B4F81;
+  color:white;
+  border:none;
+}
+
+.icon-img {
+  width:1.7em;
+  height: 1.5em;
+  margin: auto;
+}
