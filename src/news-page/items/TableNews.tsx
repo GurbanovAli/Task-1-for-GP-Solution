@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { EditForm } from '../forms/EditForm'
-import { Data } from '../redux/interfaces/Data'
+import { Data } from '../interfaces/Data'
 import './TableNews.css'
 
 type Props = {

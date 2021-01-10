@@ -7,7 +7,7 @@
 }, {
   "id": 2,
   "title": "Android interop with SWIG (a guide). From simple to weird. Part 1 — simple",
-  "theme": "sad",
+  "theme": "IT",
   "date": "01.11.2020",
   "description": "SWIG is a tool for generating cross-language interfaces - it provides interoperability of C++ and other languages (C++ and Java in our case). SWIG just simplifies and automizes cross - language interaction; otherwise, you may end up with thousands of lines of handwritten JNI code - but SWIG covers this for you."
 }, {
@@ -19,7 +19,7 @@
 }, {
   "id": 4,
   "title": "ONLYOFFICE Community Server: how bugs contribute to the emergence of security problems",
-  "theme": "bad",
+  "theme": "IT",
   "date": "17.12.2020",
   "description": "Server-side network applications rarely get the chance to join the ranks of our reviews of errors found in open source software. This is probably due to their popularity. After all, we try to pay attention to the projects that readers themselves offer us. At the same time, servers often perform very important functions, but their performance and benefits remain invisible to most users. So, by chance, the code of ONLYOFFICE Community Server was checked."
 }, {

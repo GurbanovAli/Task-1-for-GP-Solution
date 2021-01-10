@@ -4,46 +4,18 @@ import { AddForm } from './forms/AddForm'
 import { DropDown } from './forms/DropDown'
 import { ListNews } from './items/ListNews'
 import { TableNews } from './items/TableNews'
+import { Data } from './interfaces/Data'
+import dataJson from '../data.json'
 import './News.css'
-import { Data } from './redux/interfaces/Data'
-import { AppState } from './redux/store';
-import dtas from '../data.json'
 
 
 export const News = () => {
 
-  const defaultData: Data[] = [];
-
-  const [data, setData]: [Data[], (data: Data[]) => void] = useState(
-    defaultData
-  );
+  const [data, setData]: [Data[], (data: Data[]) => void] = useState(dataJson);
   const [newsView, setNewsView] = useState('isList')
   const [addNewsItem, setAddNewsItem] = useState(false);
   const [context, setContext] = useState('day');
   const [filterText, setFilterText] = useState("");
-
-  const getData = () => {
-    fetch('data.json'
-      , {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      }
-    )
-      .then(function(response) {
-        console.log(response)
-        return response.json();
-      })
-      .then(function(myJson) {
-        console.log(myJson);
-        setData(myJson)
-      });
-  }
-
-  useEffect(() => {
-    getData()
-  }, [])
 
   const addNews = (item: Data) => {
     item.id = data.length + 1

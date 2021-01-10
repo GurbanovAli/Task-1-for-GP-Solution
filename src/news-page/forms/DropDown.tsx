@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Filter } from './Filter'
-import { Data } from '../redux/interfaces/Data'
+import { Data } from '../interfaces/Data'
 import arrowToDown from '../icons/arrow-down.svg'
 import arrowToUp from '../icons/arrow-up.svg'
 import blocks from '../icons/blocks.svg'

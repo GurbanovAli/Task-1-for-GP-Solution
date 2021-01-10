@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Data } from '../redux/interfaces/Data'
+import { Data } from '../interfaces/Data'
 import './EditForm.css'
 
 type Props = {
