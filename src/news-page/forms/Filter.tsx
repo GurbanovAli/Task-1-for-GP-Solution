@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import './Filter.css'
 
 type Props = {
@@ -13,7 +13,7 @@ export const Filter: React.FC<Props> = ({ setFilterText }) => {
   return (
     <div className='search-block' >
       <input className='search-input' ref={searchRef} type="text" placeholder="title / theme" />
-      <button className='search-submit' type='submit' onClick={() => { getFilterText() }} >search</button>
+      <button className='search-submit' type='submit' onClick={() => { getFilterText() }} ><span>search</span></button>
     </div>
   )
 }

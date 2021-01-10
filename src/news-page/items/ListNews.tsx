@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { EditForm } from '../forms/EditForm'
 import { Data } from '../redux/interfaces/Data'
 import './ListNews.css'
 
 type Props = {
-  context: string
   data: Data[];
   setData: (item: Data[]) => void;
   filterText: string;
+  newsView:string;
 }
 
-export const ListNews: React.FC<Props> = ({ context, data, setData, filterText }) => {
+export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView }) => {
 
   const initialFormState = {
     id: 0,
@@ -22,7 +22,6 @@ export const ListNews: React.FC<Props> = ({ context, data, setData, filterText }
 
   const [currentNews, setCurrentNews] = useState(initialFormState)
   const [editing, setEditing] = useState(0)
-  const [currentItem, setCurrentItem] = useState(0);
 
   const deleteNews = (id: number) => {
     setEditing(0)
@@ -56,12 +55,10 @@ export const ListNews: React.FC<Props> = ({ context, data, setData, filterText }
 
   const itemsToDisplay = filterText ? filteredItems : data;
 
-  console.log(filterText)
-
   return (
-    <>
+    <div className='list-block'>
       {!filteredItems.length && (
-        <div> News is not found</div>
+        <div> News is not found </div>
       )}
       {itemsToDisplay.map((item: Data) => (
         editing === item.id ?
@@ -69,18 +66,19 @@ export const ListNews: React.FC<Props> = ({ context, data, setData, filterText }
             updateNews={updateNews}
             setEditing={setEditing}
             currentNews={currentNews}
+            newsView={newsView}
           />
-          : <ul className={`list-block`} key={item.id}>
+          : <ul className='list-item' key={item.id}>
             <li><h2>{item.title}</h2></li>
             <li><h3>{item.theme}</h3></li>
             <li><p>{item.date}</p></li>
             <li><p>{item.description}</p></li>
-            <li className=''>
+            <li>
               <button className='list-btn' onClick={() => { editRow(item, item.id) }}>edit</button>
               <button className='list-btn' onClick={() => { deleteNews(item.id) }}>delete</button>
             </li>
           </ul>
       ))}
-    </>
+    </div>
   )
 }

@@ -1,8 +1,7 @@
-.add-form-block {
-  width: 70em;
-  height: 16em;
-  margin: 2em auto;
-  padding: 0.2em 2em;
+.add-form-block-list {
+  width: 35em;
+  height: 32em;
+  margin: 1em auto;
   display: grid;
   background-color: #fff;
   border-radius: 0.5em;
@@ -15,7 +14,7 @@
   animation: animatezoom 0.6s;
 }
 
-.add-form-block:hover {
+.add-form-block-list:hover {
   cursor: pointer;
   transform: scale(1.03);
   -webkit-transition: 0.2s ease-in-out;
@@ -25,30 +24,161 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
-.add-form-block input {
-  width: 18em;
-  height: 2.1em;
-  margin: auto 1em;
+.add-form-block-list input {
+  width: 20em;
+  height: 2em;
+  margin: 0.2em 1em;
   border: 2px solid;
   border-radius: 0.2em;
   border-color: #2B4F81;
 }
 
-.add-form-block button {
-  width: 70em;
-  height: 2.5em;
-  margin: auto;
-  background-color: #2B4F81;
-  color: #fff;
-  border: none;
+.add-form-block-list textarea {
+  margin: 0.2em 1em;
+  border: 2px solid;
   border-radius: 0.2em;
-  font-weight: 600;
+  border-color: #2B4F81;
+}
+
+.add-form-block-list input:nth-child(1) {
+  width: 31em;
+  margin-top: 1em;
+}
+
+.add-form-block-list button {
+  width: 36em;
+  height: 2.8em;
+  margin: 0.2em auto -1em;
+  border: none;
+  border-radius: 0.1em;
+  color: #fff;
+  background-color: #4b77be;
   cursor: pointer;
 }
 
-.add-form-block button:hover {
+.add-form-block-list button:hover {
+  background-color: gray;
+}
+
+.add-form-block-table {
+  width: 70em;
+  height: 20em;
+  margin: 1em auto;
+  display: grid;
   background-color: #fff;
-  color: #2B4F81;
+  border-radius: 0.5em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: initial;
+  list-style: none;
+  font-size: 0.9em;
+  font-weight: 550;
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+.add-form-block-table:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.add-form-block-table input {
+  width: 20em;
+  height: 1.2em;
+  margin: 0 1em;
   border: 2px solid;
-  border-color: #2B4F81
+  border-radius: 0.2em;
+  border-color: #2B4F81;
+}
+
+.add-form-block-table textarea {
+  width: 73em;
+  height: 4em;
+  margin: 0.2em 1em;
+  border: 2px solid;
+  border-radius: 0.2em;
+  border-color: #2B4F81;
+}
+
+.add-form-block-table input:nth-child(1) {
+  width: 31em;
+  margin-top: 1em;
+}
+
+.add-form-block-table button {
+  width: 73.4em;
+  height: 2em;
+  margin: 0 auto -1em;
+  border: none;
+  border-radius: 0.1em;
+  color: #fff;
+  background-color: #4b77be;
+  cursor: pointer;
+}
+
+.add-form-block-table button:hover {
+  background-color: gray;
+}
+
+@media screen and (max-width: 420px) {
+  .add-form-block-list {
+    width: 24em;
+    height: 38em;
+    font-size: 2.8em;
+  }
+
+  .add-form-block-list input {
+    width: 14em;
+    /* margin-bottom: -10em; */
+    font-size: 1em;
+  }
+
+  .add-form-block-list input:nth-child(1) {
+    width: 20em;
+  }
+
+  .add-form-block-list textarea {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+  }
+
+  .add-form-block-list button {
+    width: 22em;
+    height: 4em;
+    font-size: 1em;
+  }
+
+  .add-form-block-table {
+    width: 24em;
+    height: 38em;
+    font-size: 2.8em;
+  }
+
+  .add-form-block-table input {
+    width: 14em;
+    height: 2.4em;
+    /* margin-bottom: -10em; */
+    font-size: 1em;
+  }
+
+  .add-form-block-table input:nth-child(1) {
+    width: 20em;
+  }
+
+  .add-form-block-table textarea {
+    width: 22em;
+    height: 12em;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+  }
+
+  .add-form-block-table button {
+    width: 22em;
+    height: 4em;
+    font-size: 1em;
+  }
 }

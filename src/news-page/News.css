@@ -6,7 +6,6 @@
 .items-block {
   text-align: center;
   margin: auto;
-  /* display: inline-flex; */
   justify-content: center;
 }
 
@@ -24,6 +23,11 @@
   color: #d4e2f8;
 }
 
+.night table {
+  background-color: #000010;
+  color: #d4e2f8;
+}
+
 .night form {
   background-color: #000010;
   color: #d4e2f8;
@@ -32,4 +36,25 @@
 .night>.dropDown-block {
   background-color: #000010;
   color: #d4e2f8;
+}
+
+.night input {
+  background-color: #000010;
+  color: #fff;
+}
+
+.night textarea {
+  background-color: #000010;
+  color: #fff;
+}
+
+.night button {
+  background-color: #21262d;
+  border: none;
+}
+
+@media screen and (max-width: 420px) {
+  .night {
+    width: 80em;
+  }
 }

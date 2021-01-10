@@ -3,13 +3,14 @@ import { Data } from '../redux/interfaces/Data'
 import './AddForm.css'
 
 type Props = {
-  addNews: (item: Data) => void
+  addNews: (item: Data) => void;
+  newsView: string;
 }
 
-export const AddForm: React.FC<Props> = ({ addNews }) => {
+export const AddForm: React.FC<Props> = ({ addNews, newsView }) => {
 
   const today = new Date().toISOString().slice(0, 10)
-  
+
   const initialFormState = {
     id: 0,
     title: '',
@@ -20,15 +21,15 @@ export const AddForm: React.FC<Props> = ({ addNews }) => {
 
   const [item, setItem] = useState(initialFormState)
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = event.target as any;
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>): void => {
+    const { name, value } = event.target as HTMLInputElement;
 
     setItem({ ...item, [name]: value })
   }
 
   return (
     <form
-      className='add-form-block'
+      className={newsView=== 'isTable' ? 'add-form-block-table' : 'add-form-block-list' }
       onSubmit={event => {
         event.preventDefault()
         if (!item.title) return
@@ -37,18 +38,10 @@ export const AddForm: React.FC<Props> = ({ addNews }) => {
         setItem(initialFormState)
       }}
     >
-      <label>Title
-      <input type="text" name='title' value={item.title} onChange={handleInputChange} />
-      </label>
-      <label>Theme
-      <input type="text" name='theme' value={item.theme} onChange={handleInputChange} />
-      </label>
-      <label>Date
-      <input type="text" name='date' value={item.date} onChange={handleInputChange} />
-      </label>
-      <label>Description
-      <input type="text" name='description' value={item.description} onChange={handleInputChange} id='text-4' />
-      </label>
+      <input type="text" name='title' value={item.title} onChange={handleInputChange} placeholder='Title'/>
+      <input type="text" name='theme' value={item.theme} onChange={handleInputChange} placeholder='Theme'/>
+      <input type="text" name='date' value={item.date} onChange={handleInputChange} placeholder='Date'/>
+      <textarea  name='description' value={item.description} onChange={handleInputChange} rows={8} cols={30} placeholder='Description'/>
       <button>Add news</button>
     </form>
   )

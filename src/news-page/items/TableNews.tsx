@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { EditForm } from '../forms/EditForm'
 import { Data } from '../redux/interfaces/Data'
 import './TableNews.css'
@@ -6,9 +6,11 @@ import './TableNews.css'
 type Props = {
   data: Data[];
   setData: (item: Data[]) => void;
+  filterText: string;
+  newsView: string;
 }
 
-export const TableNews: React.FC<Props> = ({ data, setData }) => {
+export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView }) => {
 
   const initialFormState = {
     id: 0,
@@ -45,28 +47,42 @@ export const TableNews: React.FC<Props> = ({ data, setData }) => {
     })
   }
 
+  const filteredItems = data.filter(
+    (i: Data) =>
+      i.title.toUpperCase().includes(filterText) ||
+      i.description.toUpperCase().includes(filterText)
+  )
+
+  const itemsToDisplay = filterText ? filteredItems : data;
+
   return (
-    <>
-      {data.map((item: Data) => (
+    <div className='table-block'>
+      {!filteredItems.length && (
+        <div> News is not found </div>
+      )}
+      {itemsToDisplay.map((item: Data) => (
         editing === item.id ?
           <EditForm
             updateNews={updateNews}
             setEditing={setEditing}
             currentNews={currentNews}
+            newsView={newsView}
           />
-          : <table className='table-block' key={item.id}>
+          : <table className='table-item' key={item.id}>
             <tr>
               <th><h2>{item.title}</h2></th>
               <td><h3>{item.theme}</h3></td>
-              <td><p>{item.date}</p></td>
-              <td><p>{item.description}</p></td>
               <td>
-                <button onClick={() => { editRow(item, item.id) }}>edit</button>
-                <button onClick={() => { deleteNews(item.id) }}>delete</button>
+                <button className='td-btn' onClick={() => { editRow(item, item.id) }}>edit</button>
+                <button className='td-btn' onClick={() => { deleteNews(item.id) }}>delete</button>
               </td>
+            </tr>
+            <tr>
+              <td><p>{item.description}</p></td>
+              <td><p>{item.date}</p></td>
             </tr>
           </table>
       ))}
-    </>
+    </div>
   )
 }
