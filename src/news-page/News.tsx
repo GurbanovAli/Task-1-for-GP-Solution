@@ -34,7 +34,7 @@ export const News = () => {
       });
   }, []);
 
-  const initialState: IState = {
+  const initialState = {
     'Politics': true,
     'IT': true,
     'Sport': true,
@@ -68,7 +68,7 @@ export const News = () => {
           addNewsItem={addNewsItem}
           setAddNewsItem={setAddNewsItem}
           setFilterText={setFilterText}
-          store={store}
+          store={store as IState}
           setStore={setStore}
         />
         {addNewsItem ?
@@ -87,14 +87,14 @@ export const News = () => {
                 setData={setData}
                 filterText={filterText}
                 newsView={newsView}
-                store={store}
+                store={store as IState}
               />
               : <ListNews
                 data={data}
                 setData={setData}
                 filterText={filterText}
                 newsView={newsView}
-                store={store}
+                store={store as IState}
               />
           }
         </div>

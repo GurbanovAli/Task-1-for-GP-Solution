@@ -82,10 +82,10 @@ export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView,
             currentNews={currentNews}
             newsView={newsView}
           />
-          : <>
+          : <div key={item.id}>
             {
               store[item.theme] ?
-                <ul className='list-item' key={id}>
+                <ul className='list-item'>
                   <li><h2>{item.title}</h2></li>
                   <li><h3>{item.theme}</h3></li>
                   <li><p>{item.date}</p></li>
@@ -97,9 +97,9 @@ export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView,
                     </button>
                   </li>
                 </ul>
-                : ''
+                : null
             }
-          </>
+          </div>
 
       ))}
     </div>

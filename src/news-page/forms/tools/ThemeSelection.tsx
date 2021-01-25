@@ -30,21 +30,21 @@ export const Theme: React.FC<Props> = ({ store, setStore }) => {
       </button>
       <form className={hover ? 'checkbox-block-on' : 'checkbox-block-off'} onMouseEnter={toggleOnHover} onMouseLeave={toggleOffHover}>
         {
-          res.map((i: string) => (
-            <label>
+          res.map((item: string, id: number) => (
+            <label key={id}>
               <input
                 className='checkbox'
-                name={i}
+                name={item}
                 onClick={(e: any) => {
-                  fnClick(e.target.checked, i)
+                  fnClick(e.target.checked, item)
                 }}
                 onChange={(e: any) => {
-                  fnClick(e.target.checked, i)
+                  fnClick(e.target.checked, item)
                 }}
                 type="checkbox"
-                checked={store[i]}
+                checked={store[item]}
               />
-              {i}
+              {item}
             </label>
           ))
         }

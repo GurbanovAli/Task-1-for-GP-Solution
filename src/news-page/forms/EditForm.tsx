@@ -19,8 +19,8 @@ export const EditForm: React.FC<Props> = ({ updateNews, setEditing, currentNews,
     [currentNews]
   )
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLSelectElement>): void => {
-    const { name, value } = event.target as HTMLInputElement;
+  const handleInputChange = (event: any): any => {
+    const { name, value } = event.target as any;
 
     setItem({ ...item, [name]: value })
   }
