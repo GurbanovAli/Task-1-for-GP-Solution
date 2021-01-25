@@ -10,6 +10,7 @@
 }
 
 .night {
+  min-height: 900px;
   background-color: #161b22;
 }
 
@@ -39,6 +40,11 @@
 }
 
 .night input {
+  background-color: #000010;
+  color: #fff;
+}
+
+.night select {
   background-color: #000010;
   color: #fff;
 }

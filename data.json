@@ -1,0 +1,73 @@
+[{
+  "id": 1,
+  "title": "Barcelona win at Elche to go third in La Liga",
+  "theme": "Sport",
+  "date": "2021-01-25, 00:15",
+  "description": "Frenkie de Jong scored one goal and created another to send Barcelona third in La Liga with victory at Elche. De Jong converted from close range after Elche defender Diego Gonzalez diverted a cross towards his own net. The Dutchman broke clear late on and clipped a cross to the back post for Riqui Puig to head in his first senior goal for Barca on his 25th appearance. Elche should have levelled in the second half when Emiliano Rigoni ran clear but his effort was saved."
+}, {
+  "id": 2,
+  "title": "Ovation Travel Group acquired by American Express Global Business Travel",
+  "theme": "Travel",
+  "date": "2021-01-24, 22:24",
+  "description": "Ovation Travel Group clients and travellers will continue to receive the outstanding, high-touch service for which the business and its people have become so renowned over the last 36 years. They will now also have access to the global reach, technology and expertise that comes with the powerful backing of American Express GBT (GBT). "
+}, {
+  "id": 3,
+  "title": "Biden to reinstate Covid-19-related travel restrictions lifted by Trump",
+  "theme": "Politics",
+  "date": "2021-01-24, 15:21",
+  "description": "Washington (CNN)President Joe Biden on Monday will reinstate the Covid-19 travel restrictions on non-US citizens who have been in Brazil, Ireland, the United Kingdom, and much of Europe, a White House official confirmed to CNN. Biden will also extend the restrictions to travelers who have recently been to South Africa, the official said. The step, which was first reported by Reuters, comes just one week after President Donald Trump."
+}, {
+  "id": 4,
+  "title": "Johnson says he looks forward to working with Biden on shared goals",
+  "theme": "Politics",
+  "date": "2020-01-24, 12:27",
+  "description": "LONDON (Reuters) - British Prime Minister Boris Johnson said on Saturday he looked forward to working with U.S. President Joe Biden on their shared goals, including tackling climate change. Johnson used his first phone call with the U.S. president to welcome Biden’s announcements that the United States would rejoin the 2015 Paris Agreement on climate and the World Health Organization, and they discussed the prospects of a free trade deal."
+}, {
+  "id": 5,
+  "title": "'It's hard to take' - McGregor on 'heartbreaking' UFC 257 defeat by Poirier",
+  "theme": "Sport",
+  "date": "2021-01-24, 10:32",
+  "description": "Former two-weight world champion Conor McGregor was left stunned on his return to the UFC as Dustin Poirier claimed victory in their rematch at UFC 257. McGregor came out of retirement for a third time to face fellow 32-year-old Poirier at Abu Dhabi's Fight Island. And although the Irishman edged the first round, Poirier unleashed a flurry of punches to seal a technical knockout two minutes 32 seconds into round two."
+}, {
+  "id": 6,
+  "title": "React Native: The First Choice of Mobile App Developers and Businesses",
+  "theme": "IT",
+  "date": "2020-01-24, 01:28",
+  "description": "Let’s discuss why mobile app developers select React Native for application development over other cross-platform frameworks. While few users continue to work with the Native development approach, those who want to succeed in their business have started exploring new opportunities. One such occasion in this technically advanced world is to turn toward cross - platform frameworks."
+}, {
+  "id": 7,
+  "title": "Startups going global: a guide to Product Hunt",
+  "theme": "IT",
+  "date": "2021-01-22, 19:12",
+  "description": "Product Hunt is a Y-combinator backed discovery platform, founded by Ryan Hoover in 2013. Conceived as an email list, it has gone on to become one of the most popular directories, raised $7.5 million in backing and was acquired by AngelList — a social network for entrepreneurs — in December 2016."
+}, {
+  "id": 8,
+  "title": "Many people are suffering’: Business leaders must prioritize workers’ mental health in Covid lockdown, CEO says",
+  "theme": "Business",
+  "date": "2021-01-22, 18:00",
+  "description": "Rising coronavirus infection rates, and the accompanying wave of lockdowns across Europe, should prompt managers to spend more time considering their employees’ mental health, according to the CEO of staffing group Adecco. “Especially with … the second wave of lockdowns coming in, we need more emotionally intelligent leaders, because we see that many people are suffering,” Alain Dehaze told CNBC’s “Squawk Box Europe” on Monday."
+}, {
+  "id": 9,
+  "title": "The Best Credit Card Processors of 2021",
+  "theme": "Business",
+  "date": "2021-01-21, 21:30",
+  "description": "Just about every business needs to be able to accept credit cards and debit cards, but choosing a credit card processing company for your small business can be difficult because there are hundreds to choose from and they all offer a similar service. As we researched this industry, we looked for credit card processors that have transparent pricing with reasonable rates and few credit card processing fees, reliable customer support, and no long-term contracts."
+}, {
+  "id": 10,
+  "title": "7 Best Practices Every Budding React.JS Developer Must Follow to Excel",
+  "theme": "IT",
+  "date": "2021-01-15, 14:05",
+  "description": "With the advancement in web technology, the entire globe is sliding towards the online tech sphere. The globe around us is going tech-centric day by day and thus the demand for front-end designers and developers also."
+}, {
+  "id": 11,
+  "title": "Airbus confirms further aircraft production cuts",
+  "theme": "Business",
+  "date": "2021-01-02, 09:50",
+  "description": "Airbus has updated production rate plans for its A320 family of aircraft in response to the continued slowdown in the market. The new average production rates for the A320 family will now lead to a gradual increase in production from the current rate of 40 per month to 43 in quarter three and 45 in quarter four of 2021. This latest production plan represents a slower ramp up than the previously anticipated 47 aircraft per month from July."
+}, {
+  "id": 12,
+  "title": "ONLYOFFICE Community Server: how bugs contribute to the emergence of security problems",
+  "theme": "IT",
+  "date": "2020-12-17, 16:18",
+  "description": "Server-side network applications rarely get the chance to join the ranks of our reviews of errors found in open source software. This is probably due to their popularity. After all, we try to pay attention to the projects that readers themselves offer us. At the same time, servers often perform very important functions, but their performance and benefits remain invisible to most users. So, by chance, the code of ONLYOFFICE Community Server was checked."
+}]

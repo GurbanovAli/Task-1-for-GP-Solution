@@ -24,7 +24,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
-.edit-form-block-list input {
+.edit-form-block-list input, select {
   width: 20em;
   height: 2em;
   margin: 0.2em 1em;
@@ -86,9 +86,9 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
-.edit-form-block-table input {
+.edit-form-block-table input, select {
   width: 20em;
-  height: 1.2em;
+  height: 2em;
   margin: 0 1em;
   border: 2px solid;
   border-radius: 0.2em;
@@ -96,7 +96,7 @@
 }
 
 .edit-form-block-table textarea {
-  height: 4em;
+  height: 3.6em;
   margin: 0.2em 1em;
   border: 2px solid;
   border-radius: 0.2em;
@@ -130,9 +130,8 @@
     font-size: 2.8em;
   }
 
-  .edit-form-block-list input {
+  .edit-form-block-list input, select {
     width: 14em;
-    /* margin-bottom: -10em; */
     font-size: 1em;
   }
 
@@ -157,7 +156,7 @@
     font-size: 2.8em;
   }
 
-  .edit-form-block-table input {
+  .edit-form-block-table input, select {
     width: 14em;
     height: 2em;
     font-size: 1em;

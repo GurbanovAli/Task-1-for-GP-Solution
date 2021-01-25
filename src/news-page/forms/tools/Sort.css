@@ -1,0 +1,31 @@
+.sort-block {
+  margin: auto 1em;
+}
+
+.sort-block button {
+  width: 2.8em;
+  height: 2.4em;
+  background-color: #2B4F81;
+  color: #fff;
+  border: none;
+  border-radius: 0.2em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sort-block button:hover {
+  background-color: gray;
+}
+
+@media screen and (max-width: 420px) {
+  .sort-block {
+    margin: auto;
+    font-size: 2.8em;
+  }
+
+  .sort-block button {
+    width: 6em;
+    height: 6em;
+    font-size: 0.4em;
+  }
+}

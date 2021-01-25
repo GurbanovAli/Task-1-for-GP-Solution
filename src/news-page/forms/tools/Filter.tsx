@@ -12,7 +12,7 @@ export const Filter: React.FC<Props> = ({ setFilterText }) => {
 
   return (
     <div className='search-block' >
-      <input className='search-input' ref={searchRef} type="text" placeholder="title / theme" />
+      <input className='search-input' ref={searchRef} type="text" placeholder="title / description" />
       <button className='search-submit' type='submit' onClick={() => { getFilterText() }} ><span>search</span></button>
     </div>
   )

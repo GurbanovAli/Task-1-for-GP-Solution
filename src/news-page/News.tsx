@@ -5,64 +5,99 @@ import { DropDown } from './forms/DropDown'
 import { ListNews } from './items/ListNews'
 import { TableNews } from './items/TableNews'
 import { Data } from './interfaces/Data'
-import dataJson from '../data.json'
 import './News.css'
-
 
 export const News = () => {
 
-  const [data, setData]: [Data[], (data: Data[]) => void] = useState(dataJson);
+  const defaultData: Data[] = [];
+
+  const [data, setData]: [Data[], (data: Data[]) => void] = useState(defaultData);
   const [newsView, setNewsView] = useState('isList')
   const [addNewsItem, setAddNewsItem] = useState(false);
   const [context, setContext] = useState('day');
   const [filterText, setFilterText] = useState("");
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState('');
+
+  useEffect(() => {
+    setLoading(true);
+    fetch('data.json')
+      .then((response) => response.json())
+      .then((res) => {
+        setLoading(false);
+        setData(res);
+      })
+      .catch((e) => {
+        setLoading(false);
+        setError('fetch failed');
+      });
+  }, []);
+
+  const initialState = {
+    'Politics': true,
+    'IT': true,
+    'Sport': true,
+    'Travel': true,
+    'Business': true
+  };
+
+  const [state, setState] = useState(initialState);
 
   const addNews = (item: Data) => {
     item.id = data.length + 1
     setData([...data, item])
   }
 
-  useEffect(() => {
-    const storage = localStorage.getItem('data')
-    if (storage) {
-      setData(JSON.parse(storage))
-    }
-  }, [])
+  if (loading) {
+    return <p>loading..</p>;
+  }
 
-  useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(data))
-  })
-
+  if (error !== '') {
+    return <p>ERROR: {error}</p>;
+  }
 
   return (
-    <div className={`main-block ${context}`}>
-      <Header setContext={setContext} />
-      <DropDown
-        data={data}
-        setData={setData}
-        setNewsView={setNewsView}
-        addNewsItem={addNewsItem}
-        setAddNewsItem={setAddNewsItem}
-        setFilterText={setFilterText}
-      />
-      {addNewsItem ? <AddForm addNews={addNews} newsView={newsView} /> : ''}
-      <div className='items-block'>
-        {
-          newsView === 'isTable' ?
-            <TableNews
-              data={data}
-              setData={setData}
-              filterText={filterText}
-              newsView={newsView}
-            />
-            : <ListNews
-              data={data}
-              setData={setData}
-              filterText={filterText}
-              newsView={newsView}
-            />
-        }
+    <React.Fragment>
+      <div className={`main-block ${context}`}>
+        <Header setContext={setContext} />
+        <DropDown
+          data={data}
+          setData={setData}
+          setNewsView={setNewsView}
+          addNewsItem={addNewsItem}
+          setAddNewsItem={setAddNewsItem}
+          setFilterText={setFilterText}
+          state={state}
+          setState={setState}
+        />
+        {addNewsItem ?
+          <AddForm
+            addNews={addNews}
+            newsView={newsView}
+            addNewsItem={addNewsItem}
+            setAddNewsItem={setAddNewsItem}
+          />
+          : ''}
+        <div className='items-block'>
+          {
+            newsView === 'isTable' ?
+              <TableNews
+                data={data}
+                setData={setData}
+                filterText={filterText}
+                newsView={newsView}
+                state={state}
+              />
+              : <ListNews
+                data={data}
+                setData={setData}
+                filterText={filterText}
+                newsView={newsView}
+                state={state}
+              />
+          }
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }

@@ -36,6 +36,11 @@
   color: gray;
 }
 
+.td-item-date {
+  width: max-content;
+  margin-right: -4em;
+}
+
 .td-btn {
   width: 5.5em;
   height: 2em;

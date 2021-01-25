@@ -37,8 +37,8 @@
   color: gray;
 }
 
-.list-item li:nth-child(5) {
-  
+.list-item li:nth-child(2) {
+  color: #616161;
 }
 
 .list-btn {

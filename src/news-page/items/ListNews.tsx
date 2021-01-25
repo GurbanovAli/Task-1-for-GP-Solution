@@ -1,16 +1,18 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { EditForm } from '../forms/EditForm'
 import { Data } from '../interfaces/Data'
+import { IState } from '../interfaces/InitialState'
 import './ListNews.css'
 
 type Props = {
   data: Data[];
   setData: (item: Data[]) => void;
   filterText: string;
-  newsView:string;
+  newsView: string;
+  state: IState;
 }
 
-export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView }) => {
+export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView, state }) => {
 
   const initialFormState = {
     id: 0,
@@ -22,6 +24,17 @@ export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView 
 
   const [currentNews, setCurrentNews] = useState(initialFormState)
   const [editing, setEditing] = useState(0)
+
+  useEffect(() => {
+    const storage = localStorage.getItem('data')
+    if (storage) {
+      setData(JSON.parse(storage))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(data))
+  })
 
   const deleteNews = (id: number) => {
     setEditing(0)
@@ -53,7 +66,8 @@ export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView 
       i.description.toUpperCase().includes(filterText)
   )
 
-  const itemsToDisplay = filterText ? filteredItems : data;
+  const itemsToDisplay = filterText ? filteredItems : data
+
 
   return (
     <div className='list-block'>
@@ -68,16 +82,25 @@ export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView 
             currentNews={currentNews}
             newsView={newsView}
           />
-          : <ul className='list-item' key={item.id}>
-            <li><h2>{item.title}</h2></li>
-            <li><h3>{item.theme}</h3></li>
-            <li><p>{item.date}</p></li>
-            <li><p>{item.description}</p></li>
-            <li>
-              <button className='list-btn' onClick={() => { editRow(item, item.id) }}>edit</button>
-              <button className='list-btn' onClick={() => { deleteNews(item.id) }}>delete</button>
-            </li>
-          </ul>
+          : <>
+            {
+              state[item.theme] ?
+                <ul className='list-item' key={item.id}>
+                  <li><h2>{item.title}</h2></li>
+                  <li><h3>{item.theme}</h3></li>
+                  <li><p>{item.date}</p></li>
+                  <li><p>{item.description}</p></li>
+                  <li>
+                    <button className='list-btn' onClick={() => { editRow(item, item.id) }}>edit</button>
+                    <button className='list-btn' onClick={() => { if (window.confirm('Are you sure wish to delete this news?')) deleteNews(item.id) }}>
+                      delete
+                    </button>
+                  </li>
+                </ul>
+                : ''
+            }
+          </>
+
       ))}
     </div>
   )

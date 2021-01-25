@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { Filter } from './Filter'
+import { Filter } from './tools/Filter'
 import { Data } from '../interfaces/Data'
+import { Sort } from './tools/Sort'
+import { Theme } from './tools/ThemeSelection'
+import { IState } from '../interfaces/InitialState'
 import arrowToDown from '../icons/arrow-down.svg'
 import arrowToUp from '../icons/arrow-up.svg'
 import blocks from '../icons/blocks.svg'
@@ -14,9 +17,11 @@ type Props = {
   addNewsItem: boolean;
   setAddNewsItem: (item: boolean) => void;
   setFilterText: (item: string) => void;
+  state: IState;
+  setState: (item: IState) => void;
 }
 
-export const DropDown: React.FC<Props> = ({ data, setData, setNewsView, addNewsItem, setAddNewsItem, setFilterText }) => {
+export const DropDown: React.FC<Props> = ({ data, setData, setNewsView, addNewsItem, setAddNewsItem, setFilterText, state, setState }) => {
 
   const [onDropDown, setOnDropDown] = useState(false);
 
@@ -37,12 +42,20 @@ export const DropDown: React.FC<Props> = ({ data, setData, setNewsView, addNewsI
         onDropDown ?
           <div className='filters-block'>
             <Filter setFilterText={setFilterText} />
+            <Sort
+              data={data}
+              setData={setData}
+            />
+            <Theme
+              state={state}
+              setState={setState}
+            />
             <div className='addNewsBtn'>
-              <button onClick={() => { setAddNewsItem(addNewsItem === false ? true : false) }}><span>{addNewsItem ? 'cancel' : 'add news'}</span></button>
+              <button onClick={() => { setAddNewsItem(addNewsItem === false ? true : false) }}><span>add news</span></button>
             </div>
             <div className='changeViewBtn'>
-              <button onClick={() => { setNewsView('isList') }}><img className='change-view-icon' src={blocks} alt="icon" /></button>
-              <button onClick={() => { setNewsView('isTable') }}><img className='change-view-icon' src={tables} alt="icon" /></button>
+              <button onClick={() => { setNewsView('isList') }}><img className='icon-img' src={blocks} alt="icon" /></button>
+              <button onClick={() => { setNewsView('isTable') }}><img className='icon-img' src={tables} alt="icon" /></button>
             </div>
           </div>
           : ''

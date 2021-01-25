@@ -6,7 +6,7 @@ type Props = {
   updateNews: (id: number, item: Data) => void;
   setEditing: (item: number) => void;
   currentNews: Data;
-  newsView:string;
+  newsView: string;
 }
 
 export const EditForm: React.FC<Props> = ({ updateNews, setEditing, currentNews, newsView }) => {
@@ -19,7 +19,7 @@ export const EditForm: React.FC<Props> = ({ updateNews, setEditing, currentNews,
     [currentNews]
   )
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>): void => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLSelectElement>): void => {
     const { name, value } = event.target as HTMLInputElement;
 
     setItem({ ...item, [name]: value })
@@ -27,15 +27,21 @@ export const EditForm: React.FC<Props> = ({ updateNews, setEditing, currentNews,
 
   return (
     <form
-      className={newsView === 'isTable' ? 'edit-form-block-table' : 'edit-form-block-list' }
+      className={newsView === 'isTable' ? 'edit-form-block-table' : 'edit-form-block-list'}
       onSubmit={event => {
         event.preventDefault()
 
         updateNews(item.id, item)
       }}>
       <input type="text" name='title' value={item.title} onChange={handleInputChange} />
-      <input type="text" name='theme' value={item.theme} onChange={handleInputChange} />
-      <input type="text" name='date' value={item.date} onChange={handleInputChange} />
+      <select name='theme' value={item.theme} onChange={handleInputChange}>
+        <option value='Politics'>Politics</option>
+        <option value='IT'>IT</option>
+        <option value='Sport'>Sport</option>
+        <option value='Travel'>Travel</option>
+        <option value='Business'>Business</option>
+      </select>
+      <input type="text" name='date' value={item.date} />
       <textarea name='description' value={item.description} rows={8} cols={30} onChange={handleInputChange} />
       <button>Update news</button>
       <button onClick={() => setEditing(0)} className="button muted-button">

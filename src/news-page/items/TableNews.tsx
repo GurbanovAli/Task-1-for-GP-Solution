@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { EditForm } from '../forms/EditForm'
 import { Data } from '../interfaces/Data'
+import { IState } from '../interfaces/InitialState'
 import './TableNews.css'
 
 type Props = {
@@ -8,9 +9,10 @@ type Props = {
   setData: (item: Data[]) => void;
   filterText: string;
   newsView: string;
+  state: IState;
 }
 
-export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView }) => {
+export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView, state }) => {
 
   const initialFormState = {
     id: 0,
@@ -22,6 +24,17 @@ export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView
 
   const [currentNews, setCurrentNews] = useState(initialFormState)
   const [editing, setEditing] = useState(0)
+
+  useEffect(() => {
+    const storage = localStorage.getItem('data')
+    if (storage) {
+      setData(JSON.parse(storage))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(data))
+  })
 
   const deleteNews = (id: number) => {
     setEditing(0)
@@ -68,20 +81,29 @@ export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView
             currentNews={currentNews}
             newsView={newsView}
           />
-          : <table className='table-item' key={item.id}>
-            <tr>
-              <th><h2>{item.title}</h2></th>
-              <td><h3>{item.theme}</h3></td>
-              <td>
-                <button className='td-btn' onClick={() => { editRow(item, item.id) }}>edit</button>
-                <button className='td-btn' onClick={() => { deleteNews(item.id) }}>delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td><p>{item.description}</p></td>
-              <td><p>{item.date}</p></td>
-            </tr>
-          </table>
+          :
+          <>
+            {
+              state[item.theme] ?
+                <table className='table-item' key={item.id}>
+                  <tr>
+                    <th><h2>{item.title}</h2></th>
+                    <td><h3>{item.theme}</h3></td>
+                    <td>
+                      <button className='td-btn' onClick={() => { editRow(item, item.id) }}>edit</button>
+                      <button className='td-btn' onClick={() => { if (window.confirm('Are you sure wish to delete this news?')) deleteNews(item.id) }}>
+                        delete
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>{item.description}</p></td>
+                    <td><p className='td-item-date'>{item.date}</p></td>
+                  </tr>
+                </table>
+                : ''
+            }
+          </>
       ))}
     </div>
   )
