@@ -25,8 +25,8 @@ export const AddForm: React.FC<Props> = ({ addNews, newsView, addNewsItem, setAd
 
   const [item, setItem] = useState(initialFormState)
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLSelectElement>): void => {
-    const { name, value } = event.target as HTMLInputElement;
+  const handleInputChange = (event: any): any => {
+    const { name, value } = event.target as any;
 
     setItem({ ...item, [name]: value })
   }
@@ -45,7 +45,7 @@ export const AddForm: React.FC<Props> = ({ addNews, newsView, addNewsItem, setAd
       <button onClick={() => { setAddNewsItem(addNewsItem === false ? true : false) }}>
         <img className='icon-img' src={deleteIcon} alt="icon" />
       </button>
-      <input type="text" name='title' value={item.title} onChange={handleInputChange} minlength="25" required placeholder='Title' />
+      <input type="text" name='title' value={item.title} onChange={handleInputChange} minlength={25} required placeholder='Title' />
       <select name='theme' value={item.theme} onChange={handleInputChange}>
         <option value='Politics' >Politics</option>
         <option value='IT' >IT</option>
@@ -54,7 +54,7 @@ export const AddForm: React.FC<Props> = ({ addNews, newsView, addNewsItem, setAd
         <option value='Business' >Business</option>
       </select>
       <input type="text" name='date' value={item.date} />
-      <textarea name='description' maxlength="20" minlength="5" value={item.description} onChange={handleInputChange} rows={8} cols={30} required placeholder='Description'>
+      <textarea name='description' maxlength={20} minlength={5} value={item.description} onChange={handleInputChange} rows={8} cols={30} required placeholder='Description'>
       </textarea>
       <button>Add news</button>
     </form>

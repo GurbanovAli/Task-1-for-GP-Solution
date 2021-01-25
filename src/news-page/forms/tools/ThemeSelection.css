@@ -16,6 +16,7 @@
 
 .checkbox-block-on label {
   margin: auto 0;
+  font-size: 13px;
 }
 
 .checkbox-block button {

@@ -9,10 +9,10 @@ type Props = {
   setData: (item: Data[]) => void;
   filterText: string;
   newsView: string;
-  state: IState;
+  store: IState;
 }
 
-export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView, state }) => {
+export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView, store }) => {
 
   const initialFormState = {
     id: 0,
@@ -76,6 +76,7 @@ export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView
       {itemsToDisplay.map((item: Data) => (
         editing === item.id ?
           <EditForm
+            key={item.id}
             updateNews={updateNews}
             setEditing={setEditing}
             currentNews={currentNews}
@@ -84,7 +85,7 @@ export const TableNews: React.FC<Props> = ({ data, setData, filterText, newsView
           :
           <>
             {
-              state[item.theme] ?
+              store[item.theme] ?
                 <table className='table-item' key={item.id}>
                   <tr>
                     <th><h2>{item.title}</h2></th>

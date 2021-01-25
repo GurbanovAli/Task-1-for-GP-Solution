@@ -5,17 +5,17 @@ import toggleDown from '../../icons/toggle-down.svg'
 import './ThemeSelection.css'
 
 type Props = {
-  state: IState;
-  setState: (item: IState) => void;
+  store: IState;
+  setStore: (item: IState) => void;
 }
 
-export const Theme: React.FC<Props> = ({ state, setState }) => {
+export const Theme: React.FC<Props> = ({ store, setStore }) => {
 
   const [hover, setHover] = useState(false)
 
   const res = ['Politics', 'IT', 'Sport', 'Travel', 'Business'];
 
-  const fnClick = (e: MouseEvent<HTMLInputElement, MouseEvent>, i: string): void => setState({ ...state, [i]: e })
+  const fnClick = (e: boolean, i: string): void => setStore({ ...store, [i]: e })
 
   const toggleOnHover = () => setHover(true)
   const toggleOffHover = () => setHover(false)
@@ -35,14 +35,14 @@ export const Theme: React.FC<Props> = ({ state, setState }) => {
               <input
                 className='checkbox'
                 name={i}
-                onClick={(e: MouseEvent<HTMLInputElement, MouseEvent>) => {
+                onClick={(e: any) => {
                   fnClick(e.target.checked, i)
                 }}
-                onChange={(e: MouseEvent<HTMLInputElement, MouseEvent>) => {
+                onChange={(e: any) => {
                   fnClick(e.target.checked, i)
                 }}
                 type="checkbox"
-                checked={state[i]}
+                checked={store[i]}
               />
               {i}
             </label>

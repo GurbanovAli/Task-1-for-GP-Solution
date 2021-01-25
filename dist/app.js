@@ -30282,7 +30282,7 @@ var News = function () {
         'Travel': true,
         'Business': true
     };
-    var _h = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialState), state = _h[0], setState = _h[1];
+    var _h = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialState), store = _h[0], setStore = _h[1];
     var addNews = function (item) {
         item.id = data.length + 1;
         setData(__spreadArrays(data, [item]));
@@ -30298,13 +30298,13 @@ var News = function () {
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null,
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "main-block " + context },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Header__WEBPACK_IMPORTED_MODULE_1__["Header"], { setContext: setContext }),
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_DropDown__WEBPACK_IMPORTED_MODULE_3__["DropDown"], { data: data, setData: setData, setNewsView: setNewsView, addNewsItem: addNewsItem, setAddNewsItem: setAddNewsItem, setFilterText: setFilterText, state: state, setState: setState }),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_DropDown__WEBPACK_IMPORTED_MODULE_3__["DropDown"], { data: data, setData: setData, setNewsView: setNewsView, addNewsItem: addNewsItem, setAddNewsItem: setAddNewsItem, setFilterText: setFilterText, store: store, setStore: setStore }),
             addNewsItem ?
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_AddForm__WEBPACK_IMPORTED_MODULE_2__["AddForm"], { addNews: addNews, newsView: newsView, addNewsItem: addNewsItem, setAddNewsItem: setAddNewsItem })
                 : '',
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'items-block' }, newsView === 'isTable' ?
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_TableNews__WEBPACK_IMPORTED_MODULE_5__["TableNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView, state: state })
-                : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_ListNews__WEBPACK_IMPORTED_MODULE_4__["ListNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView, state: state })))));
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_TableNews__WEBPACK_IMPORTED_MODULE_5__["TableNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView, store: store })
+                : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_ListNews__WEBPACK_IMPORTED_MODULE_4__["ListNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView, store: store })))));
 };
 
 
@@ -30820,7 +30820,7 @@ var AddForm = function (_a) {
         } },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setAddNewsItem(addNewsItem === false ? true : false); } },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_delete_svg__WEBPACK_IMPORTED_MODULE_1__["default"], alt: "icon" })),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'title', value: item.title, onChange: handleInputChange, minlength: "25", required: true, placeholder: 'Title' }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'title', value: item.title, onChange: handleInputChange, minlength: 25, required: true, placeholder: 'Title' }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", { name: 'theme', value: item.theme, onChange: handleInputChange },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Politics' }, "Politics"),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'IT' }, "IT"),
@@ -30828,7 +30828,7 @@ var AddForm = function (_a) {
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Travel' }, "Travel"),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Business' }, "Business")),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'date', value: item.date }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", { name: 'description', maxlength: "20", minlength: "5", value: item.description, onChange: handleInputChange, rows: 8, cols: 30, required: true, placeholder: 'Description' }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", { name: 'description', maxlength: 20, minlength: 5, value: item.description, onChange: handleInputChange, rows: 8, cols: 30, required: true, placeholder: 'Description' }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Add news")));
 };
 
@@ -30910,7 +30910,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var DropDown = function (_a) {
-    var data = _a.data, setData = _a.setData, setNewsView = _a.setNewsView, addNewsItem = _a.addNewsItem, setAddNewsItem = _a.setAddNewsItem, setFilterText = _a.setFilterText, state = _a.state, setState = _a.setState;
+    var data = _a.data, setData = _a.setData, setNewsView = _a.setNewsView, addNewsItem = _a.addNewsItem, setAddNewsItem = _a.setAddNewsItem, setFilterText = _a.setFilterText, store = _a.store, setStore = _a.setStore;
     var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false), onDropDown = _b[0], setOnDropDown = _b[1];
     var changeDropDown = function () {
         setOnDropDown(onDropDown ? false : true);
@@ -30925,7 +30925,7 @@ var DropDown = function (_a) {
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'filters-block' },
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tools_Filter__WEBPACK_IMPORTED_MODULE_1__["Filter"], { setFilterText: setFilterText }),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tools_Sort__WEBPACK_IMPORTED_MODULE_2__["Sort"], { data: data, setData: setData }),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tools_ThemeSelection__WEBPACK_IMPORTED_MODULE_3__["Theme"], { state: state, setState: setState }),
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tools_ThemeSelection__WEBPACK_IMPORTED_MODULE_3__["Theme"], { store: store, setStore: setStore }),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'addNewsBtn' },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setAddNewsItem(addNewsItem === false ? true : false); } },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "add news"))),
@@ -31132,12 +31132,12 @@ var __assign = (undefined && undefined.__assign) || function () {
 
 
 var Theme = function (_a) {
-    var state = _a.state, setState = _a.setState;
+    var store = _a.store, setStore = _a.setStore;
     var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false), hover = _b[0], setHover = _b[1];
     var res = ['Politics', 'IT', 'Sport', 'Travel', 'Business'];
     var fnClick = function (e, i) {
         var _a;
-        return setState(__assign(__assign({}, state), (_a = {}, _a[i] = e, _a)));
+        return setStore(__assign(__assign({}, store), (_a = {}, _a[i] = e, _a)));
     };
     var toggleOnHover = function () { return setHover(true); };
     var toggleOffHover = function () { return setHover(false); };
@@ -31149,7 +31149,7 @@ var Theme = function (_a) {
                     fnClick(e.target.checked, i);
                 }, onChange: function (e) {
                     fnClick(e.target.checked, i);
-                }, type: "checkbox", checked: state[i] }),
+                }, type: "checkbox", checked: store[i] }),
             i)); }))));
 };
 
@@ -31206,7 +31206,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".checkbox-block {\r\n  width: 5em;\r\n  margin: 2em 0 2em 1em;\r\n}\r\n\r\n.checkbox-block-on {\r\n  width: 5em;\r\n  height: 6em;\r\n  display: flex;\r\n  flex-flow: column;\r\n  background-color: #fff;\r\n  border-radius: 0.2em;\r\n  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);\r\n  cursor: pointer;\r\n}\r\n\r\n.checkbox-block-on label {\r\n  margin: auto 0;\r\n}\r\n\r\n.checkbox-block button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.checkbox-block button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.checkbox-block-off {\r\n  display: none;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .checkbox-block {\r\n    width: 2em;\r\n    margin: auto;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .checkbox-block button {\r\n    width: 6em;\r\n    height: 6em;\r\n    font-size: 0.4em;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".checkbox-block {\r\n  width: 5em;\r\n  margin: 2em 0 2em 1em;\r\n}\r\n\r\n.checkbox-block-on {\r\n  width: 5em;\r\n  height: 6em;\r\n  display: flex;\r\n  flex-flow: column;\r\n  background-color: #fff;\r\n  border-radius: 0.2em;\r\n  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);\r\n  cursor: pointer;\r\n}\r\n\r\n.checkbox-block-on label {\r\n  margin: auto 0;\r\n  font-size: 13px;\r\n}\r\n\r\n.checkbox-block button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.checkbox-block button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.checkbox-block-off {\r\n  display: none;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .checkbox-block {\r\n    width: 2em;\r\n    margin: auto;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .checkbox-block button {\r\n    width: 6em;\r\n    height: 6em;\r\n    font-size: 0.4em;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
@@ -31300,7 +31300,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ListNews = function (_a) {
-    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView, state = _a.state;
+    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView, store = _a.store;
     var initialFormState = {
         id: 0,
         title: '',
@@ -31344,10 +31344,10 @@ var ListNews = function (_a) {
     var itemsToDisplay = filterText ? filteredItems : data;
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'list-block' },
         !filteredItems.length && (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " News is not found ")),
-        itemsToDisplay.map(function (item) { return (editing === item.id ?
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
-            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, state[item.theme] ?
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", { className: 'list-item', key: item.id },
+        itemsToDisplay.map(function (item, id) { return (editing === item.id ?
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { key: item.id, updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
+            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, store[item.theme] ?
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", { className: 'list-item', key: id },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.title)),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
@@ -31515,7 +31515,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TableNews = function (_a) {
-    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView, state = _a.state;
+    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView, store = _a.store;
     var initialFormState = {
         id: 0,
         title: '',
@@ -31560,9 +31560,9 @@ var TableNews = function (_a) {
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'table-block' },
         !filteredItems.length && (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " News is not found ")),
         itemsToDisplay.map(function (item) { return (editing === item.id ?
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { key: item.id, updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
             :
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, state[item.theme] ?
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, store[item.theme] ?
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", { className: 'table-item', key: item.id },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null,
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null,

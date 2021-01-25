@@ -9,10 +9,10 @@ type Props = {
   setData: (item: Data[]) => void;
   filterText: string;
   newsView: string;
-  state: IState;
+  store: IState;
 }
 
-export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView, state }) => {
+export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView, store }) => {
 
   const initialFormState = {
     id: 0,
@@ -68,15 +68,15 @@ export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView,
 
   const itemsToDisplay = filterText ? filteredItems : data
 
-
   return (
     <div className='list-block'>
       {!filteredItems.length && (
         <div> News is not found </div>
       )}
-      {itemsToDisplay.map((item: Data) => (
+      {itemsToDisplay.map((item: Data, id: number) => (
         editing === item.id ?
           <EditForm
+            key={item.id}
             updateNews={updateNews}
             setEditing={setEditing}
             currentNews={currentNews}
@@ -84,8 +84,8 @@ export const ListNews: React.FC<Props> = ({ data, setData, filterText, newsView,
           />
           : <>
             {
-              state[item.theme] ?
-                <ul className='list-item' key={item.id}>
+              store[item.theme] ?
+                <ul className='list-item' key={id}>
                   <li><h2>{item.title}</h2></li>
                   <li><h3>{item.theme}</h3></li>
                   <li><p>{item.date}</p></li>

@@ -5,6 +5,7 @@ import { DropDown } from './forms/DropDown'
 import { ListNews } from './items/ListNews'
 import { TableNews } from './items/TableNews'
 import { Data } from './interfaces/Data'
+import { IState } from './interfaces/InitialState'
 import './News.css'
 
 export const News = () => {
@@ -33,7 +34,7 @@ export const News = () => {
       });
   }, []);
 
-  const initialState = {
+  const initialState: IState = {
     'Politics': true,
     'IT': true,
     'Sport': true,
@@ -41,7 +42,7 @@ export const News = () => {
     'Business': true
   };
 
-  const [state, setState] = useState(initialState);
+  const [store, setStore] = useState(initialState);
 
   const addNews = (item: Data) => {
     item.id = data.length + 1
@@ -67,8 +68,8 @@ export const News = () => {
           addNewsItem={addNewsItem}
           setAddNewsItem={setAddNewsItem}
           setFilterText={setFilterText}
-          state={state}
-          setState={setState}
+          store={store}
+          setStore={setStore}
         />
         {addNewsItem ?
           <AddForm
@@ -86,14 +87,14 @@ export const News = () => {
                 setData={setData}
                 filterText={filterText}
                 newsView={newsView}
-                state={state}
+                store={store}
               />
               : <ListNews
                 data={data}
                 setData={setData}
                 filterText={filterText}
                 newsView={newsView}
-                state={state}
+                store={store}
               />
           }
         </div>

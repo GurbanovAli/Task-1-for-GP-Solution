@@ -17,11 +17,11 @@ type Props = {
   addNewsItem: boolean;
   setAddNewsItem: (item: boolean) => void;
   setFilterText: (item: string) => void;
-  state: IState;
-  setState: (item: IState) => void;
+  store: IState;
+  setStore: (item: IState) => void;
 }
 
-export const DropDown: React.FC<Props> = ({ data, setData, setNewsView, addNewsItem, setAddNewsItem, setFilterText, state, setState }) => {
+export const DropDown: React.FC<Props> = ({ data, setData, setNewsView, addNewsItem, setAddNewsItem, setFilterText, store, setStore }) => {
 
   const [onDropDown, setOnDropDown] = useState(false);
 
@@ -47,8 +47,8 @@ export const DropDown: React.FC<Props> = ({ data, setData, setNewsView, addNewsI
               setData={setData}
             />
             <Theme
-              state={state}
-              setState={setState}
+              store={store}
+              setStore={setStore}
             />
             <div className='addNewsBtn'>
               <button onClick={() => { setAddNewsItem(addNewsItem === false ? true : false) }}><span>add news</span></button>
