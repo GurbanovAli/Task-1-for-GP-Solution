@@ -209,18 +209,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
-/* harmony import */ var _reportWebVitals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(48);
-
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
+/* harmony import */ var _reportWebVitals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
 
 
 
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, null,
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], null)), document.getElementById('root'));
-Object(_reportWebVitals__WEBPACK_IMPORTED_MODULE_4__["default"])();
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null)), document.getElementById('root'));
+Object(_reportWebVitals__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
 
 /***/ }),
@@ -30207,10 +30204,145 @@ exports.unstable_wrap = unstable_wrap;
 
 /***/ }),
 /* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _news_page_News__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(54);
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function App() {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_news_page_News__WEBPACK_IMPORTED_MODULE_1__["News"], null)));
+}
+/* harmony default export */ __webpack_exports__["default"] = (App);
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "News", function() { return News; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _header_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var _forms_AddForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
+/* harmony import */ var _forms_DropDown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(23);
+/* harmony import */ var _items_ListNews__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(43);
+/* harmony import */ var _items_TableNews__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(49);
+/* harmony import */ var _News_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(52);
+/* harmony import */ var _News_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_News_css__WEBPACK_IMPORTED_MODULE_6__);
+var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+
+
+
+
+
+
+var News = function () {
+    var defaultData = [];
+    var _a = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(defaultData), data = _a[0], setData = _a[1];
+    var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('isList'), newsView = _b[0], setNewsView = _b[1];
+    var _c = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false), addNewsItem = _c[0], setAddNewsItem = _c[1];
+    var _d = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('day'), context = _d[0], setContext = _d[1];
+    var _e = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""), filterText = _e[0], setFilterText = _e[1];
+    var _f = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(true), loading = _f[0], setLoading = _f[1];
+    var _g = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(''), error = _g[0], setError = _g[1];
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+        setLoading(true);
+        fetch('data.json')
+            .then(function (response) { return response.json(); })
+            .then(function (res) {
+            setLoading(false);
+            setData(res);
+        })
+            .catch(function (e) {
+            setLoading(false);
+            setError('fetch failed');
+        });
+    }, []);
+    var initialState = {
+        'Politics': true,
+        'IT': true,
+        'Sport': true,
+        'Travel': true,
+        'Business': true
+    };
+    var _h = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialState), store = _h[0], setStore = _h[1];
+    var addNews = function (item) {
+        item.id = data.length + 1;
+        setData(__spreadArrays(data, [item]));
+    };
+    if (loading) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "loading..");
+    }
+    if (error !== '') {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null,
+            "ERROR: ",
+            error);
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "main-block " + context },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Header__WEBPACK_IMPORTED_MODULE_1__["Header"], { setContext: setContext }),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_DropDown__WEBPACK_IMPORTED_MODULE_3__["DropDown"], { data: data, setData: setData, setNewsView: setNewsView, addNewsItem: addNewsItem, setAddNewsItem: setAddNewsItem, setFilterText: setFilterText, store: store, setStore: setStore }),
+            addNewsItem ?
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_AddForm__WEBPACK_IMPORTED_MODULE_2__["AddForm"], { addNews: addNews, newsView: newsView, addNewsItem: addNewsItem, setAddNewsItem: setAddNewsItem })
+                : '',
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'items-block' }, newsView === 'isTable' ?
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_TableNews__WEBPACK_IMPORTED_MODULE_5__["TableNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView, store: store })
+                : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_ListNews__WEBPACK_IMPORTED_MODULE_4__["ListNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView, store: store })))));
+};
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Header", function() { return Header; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Header_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var _Header_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Header_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _icons_moon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(17);
+/* harmony import */ var _icons_sun_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
+
+
+
+
+var Header = function (_a) {
+    var setContext = _a.setContext;
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null,
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "GP Solutions"),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null,
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setContext('day'); } },
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_sun_svg__WEBPACK_IMPORTED_MODULE_3__["default"], alt: "icon" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setContext('night'); } },
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_moon_svg__WEBPACK_IMPORTED_MODULE_2__["default"], alt: "icon" })))));
+};
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(12);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(15);
 
             content = content.__esModule ? content.default : content;
 
@@ -30230,7 +30362,7 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30505,24 +30637,24 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "body {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "header {\r\n  width: 88.5em;\r\n  height: 6em;\r\n  margin: auto;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  background-color: #4b77be;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.2em;\r\n}\r\n\r\nheader h1 {\r\n  color: #fff;\r\n}\r\n\r\nheader div {\r\n  width: 10em;\r\n  margin: auto 0;\r\n}\r\n\r\nheader button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  margin: 0 0.5em;\r\n  background-color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n  text-align: center;\r\n}\r\n\r\nheader button:hover {\r\n  transform: scale(1.1);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.icon-img {\r\n  width: 1.7em;\r\n  height: 1.6em;\r\n  vertical-align: top;\r\n  /* margin: 0.2em auto; */\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  header {\r\n    width: 78em;\r\n    height: 16em;\r\n  }\r\n\r\n  header h1 {\r\n    font-size: 8em;\r\n    margin: auto;\r\n  }\r\n\r\n  header div {\r\n    width: 20em;\r\n    margin: auto;\r\n  }\r\n\r\n  header button {\r\n    width: 8em;\r\n    height: 8em;\r\n  }\r\n\r\n  .icon-img {\r\n    width: 4em;\r\n    height: 4em;\r\n    margin: auto;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30622,160 +30754,7 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
-/* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _news_page_News__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(46);
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-function App() {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null,
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_news_page_News__WEBPACK_IMPORTED_MODULE_1__["News"], null)));
-}
-/* harmony default export */ __webpack_exports__["default"] = (App);
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "News", function() { return News; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _header_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
-/* harmony import */ var _forms_AddForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
-/* harmony import */ var _forms_DropDown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(24);
-/* harmony import */ var _items_ListNews__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(34);
-/* harmony import */ var _items_TableNews__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(40);
-/* harmony import */ var _News_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(43);
-/* harmony import */ var _News_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_News_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _data_json__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(45);
-var _data_json__WEBPACK_IMPORTED_MODULE_7___namespace = /*#__PURE__*/__webpack_require__.t(45, 1);
-var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
-
-
-
-
-
-
-
-
-var News = function () {
-    var _a = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(_data_json__WEBPACK_IMPORTED_MODULE_7__), data = _a[0], setData = _a[1];
-    var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('isList'), newsView = _b[0], setNewsView = _b[1];
-    var _c = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false), addNewsItem = _c[0], setAddNewsItem = _c[1];
-    var _d = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('day'), context = _d[0], setContext = _d[1];
-    var _e = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""), filterText = _e[0], setFilterText = _e[1];
-    var addNews = function (item) {
-        item.id = data.length + 1;
-        setData(__spreadArrays(data, [item]));
-    };
-    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-        var storage = localStorage.getItem('data');
-        if (storage) {
-            setData(JSON.parse(storage));
-        }
-    }, []);
-    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-        localStorage.setItem('data', JSON.stringify(data));
-    });
-    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "main-block " + context },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header_Header__WEBPACK_IMPORTED_MODULE_1__["Header"], { setContext: setContext }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_DropDown__WEBPACK_IMPORTED_MODULE_3__["DropDown"], { data: data, setData: setData, setNewsView: setNewsView, addNewsItem: addNewsItem, setAddNewsItem: setAddNewsItem, setFilterText: setFilterText }),
-        addNewsItem ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_AddForm__WEBPACK_IMPORTED_MODULE_2__["AddForm"], { addNews: addNews, newsView: newsView }) : '',
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'items-block' }, newsView === 'isTable' ?
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_TableNews__WEBPACK_IMPORTED_MODULE_5__["TableNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView })
-            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_ListNews__WEBPACK_IMPORTED_MODULE_4__["ListNews"], { data: data, setData: setData, filterText: filterText, newsView: newsView }))));
-};
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Header", function() { return Header; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Header_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
-/* harmony import */ var _Header_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Header_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _icons_moon_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
-/* harmony import */ var _icons_sun_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
-
-
-
-
-var Header = function (_a) {
-    var setContext = _a.setContext;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null,
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "GP Solutions"),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null,
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setContext('day'); } },
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_sun_svg__WEBPACK_IMPORTED_MODULE_3__["default"], alt: "icon" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setContext('night'); } },
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_moon_svg__WEBPACK_IMPORTED_MODULE_2__["default"], alt: "icon" })))));
-};
-
-
-/***/ }),
 /* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(11);
-            var content = __webpack_require__(18);
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-
-
-module.exports = content.locals || {};
-
-/***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, "header {\r\n  width: 88.5em;\r\n  height: 6em;\r\n  margin: auto;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  background-color: #4b77be;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.2em;\r\n}\r\n\r\nheader h1 {\r\n  color: #fff;\r\n}\r\n\r\nheader div {\r\n  width: 10em;\r\n  margin: auto 0;\r\n}\r\n\r\nheader button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  margin: 0 0.5em;\r\n  background-color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n  text-align: center;\r\n}\r\n\r\nheader button:hover {\r\n  transform: scale(1.1);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n\r\n}\r\n\r\n.icon-img {\r\n  width: 1.7em;\r\n  height: 1.7em;\r\n  margin: 0.2em auto;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  header {\r\n    width: 78em;\r\n    height: 16em;\r\n  }\r\n\r\n  header h1 {\r\n    font-size: 8em;\r\n    margin: auto;\r\n  }\r\n\r\n  header div {\r\n    width: 20em;\r\n    margin: auto;\r\n  }\r\n\r\n  header button {\r\n    width: 8em;\r\n    height: 8em;\r\n  }\r\n\r\n  .icon-img {\r\n    width: 4em;\r\n    height: 4em;\r\n    margin: auto;\r\n  }\r\n}\r\n", ""]);
-// Exports
-/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30783,7 +30762,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/moon.svg");
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30791,7 +30770,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/sun.svg");
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30799,8 +30778,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddForm", function() { return AddForm; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _AddForm_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
-/* harmony import */ var _AddForm_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_AddForm_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _icons_delete_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
+/* harmony import */ var _AddForm_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
+/* harmony import */ var _AddForm_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_AddForm_css__WEBPACK_IMPORTED_MODULE_2__);
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30814,9 +30794,10 @@ var __assign = (undefined && undefined.__assign) || function () {
 };
 
 
+
 var AddForm = function (_a) {
-    var addNews = _a.addNews, newsView = _a.newsView;
-    var today = new Date().toISOString().slice(0, 10);
+    var addNews = _a.addNews, newsView = _a.newsView, addNewsItem = _a.addNewsItem, setAddNewsItem = _a.setAddNewsItem;
+    var today = new Date().toLocaleString().slice(0, 17);
     var initialFormState = {
         id: 0,
         title: '',
@@ -30837,20 +30818,35 @@ var AddForm = function (_a) {
             addNews(item);
             setItem(initialFormState);
         } },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'title', value: item.title, onChange: handleInputChange, placeholder: 'Title' }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'theme', value: item.theme, onChange: handleInputChange, placeholder: 'Theme' }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'date', value: item.date, onChange: handleInputChange, placeholder: 'Date' }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", { name: 'description', value: item.description, onChange: handleInputChange, rows: 8, cols: 30, placeholder: 'Description' }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setAddNewsItem(addNewsItem === false ? true : false); } },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_delete_svg__WEBPACK_IMPORTED_MODULE_1__["default"], alt: "icon" })),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'title', value: item.title, onChange: handleInputChange, minlength: 25, required: true, placeholder: 'Title' }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", { name: 'theme', value: item.theme, onChange: handleInputChange },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Politics' }, "Politics"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'IT' }, "IT"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Sport' }, "Sport"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Travel' }, "Travel"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Business' }, "Business")),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'date', value: item.date }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", { name: 'description', maxlength: 20, minlength: 5, value: item.description, onChange: handleInputChange, rows: 8, cols: 30, required: true, placeholder: 'Description' }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Add news")));
 };
 
 
 /***/ }),
-/* 22 */
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/delete.svg");
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(23);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(22);
 
             content = content.__esModule ? content.default : content;
 
@@ -30870,24 +30866,24 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".add-form-block-list {\r\n  width: 35em;\r\n  height: 32em;\r\n  margin: 1em auto;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.add-form-block-list:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.add-form-block-list input {\r\n  width: 20em;\r\n  height: 2em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-list textarea {\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-list input:nth-child(1) {\r\n  width: 31em;\r\n  margin-top: 1em;\r\n}\r\n\r\n.add-form-block-list button {\r\n  width: 36em;\r\n  height: 2.8em;\r\n  margin: 0.2em auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.add-form-block-list button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.add-form-block-table {\r\n  width: 70em;\r\n  height: 20em;\r\n  margin: 1em auto;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.add-form-block-table:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.add-form-block-table input {\r\n  width: 20em;\r\n  height: 1.2em;\r\n  margin: 0 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-table textarea {\r\n  width: 73em;\r\n  height: 4em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-table input:nth-child(1) {\r\n  width: 31em;\r\n  margin-top: 1em;\r\n}\r\n\r\n.add-form-block-table button {\r\n  width: 73.4em;\r\n  height: 2em;\r\n  margin: 0 auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.add-form-block-table button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .add-form-block-list {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .add-form-block-list input {\r\n    width: 14em;\r\n    /* margin-bottom: -10em; */\r\n    font-size: 1em;\r\n  }\r\n\r\n  .add-form-block-list input:nth-child(1) {\r\n    width: 20em;\r\n  }\r\n\r\n  .add-form-block-list textarea {\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .add-form-block-list button {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .add-form-block-table {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .add-form-block-table input {\r\n    width: 14em;\r\n    height: 2.4em;\r\n    /* margin-bottom: -10em; */\r\n    font-size: 1em;\r\n  }\r\n\r\n  .add-form-block-table input:nth-child(1) {\r\n    width: 20em;\r\n  }\r\n\r\n  .add-form-block-table textarea {\r\n    width: 22em;\r\n    height: 12em;\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .add-form-block-table button {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".add-form-block-list {\r\n  width: 35em;\r\n  height: 32em;\r\n  margin: 1em auto;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.add-form-block-list:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.add-form-block-list input {\r\n  width: 20em;\r\n  height: 2em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-list textarea {\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-list input:nth-child(2) {\r\n  width: 31em;\r\n  margin-top: -1.5em;\r\n}\r\n\r\n.add-form-block-list button:nth-child(1) {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  justify-self: flex-end;\r\n  margin: 0.2em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.add-form-block-list button:nth-child(6) {\r\n  width: 36em;\r\n  height: 2.8em;\r\n  margin: 0.2em auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.add-form-block-list button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.add-form-block-table {\r\n  width: 70em;\r\n  height: 20em;\r\n  margin: 1em auto;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.add-form-block-table:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.add-form-block-table button:nth-child(1) {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  justify-self: flex-end;\r\n  margin: 0.2em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.add-form-block-table input {\r\n  width: 20em;\r\n  height: 1.2em;\r\n  margin: 0 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-table textarea {\r\n  width: 73em;\r\n  height: 4em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.add-form-block-table input:nth-child(2) {\r\n  width: 31em;\r\n  margin-top: -2em;\r\n}\r\n\r\n.add-form-block-table button {\r\n  width: 73.4em;\r\n  height: 2em;\r\n  margin: 0 auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.add-form-block-table button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .add-form-block-list {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .add-form-block-list button:nth-child(1) {\r\n    width: 4.8em;\r\n    height: 4.2em;\r\n  }\r\n\r\n  .add-form-block-list input, select {\r\n    width: 14em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .add-form-block-list input:nth-child(2) {\r\n    width: 20em;\r\n  }\r\n\r\n  .add-form-block-list textarea {\r\n    width: 20em;\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .add-form-block-list button:nth-child(6) {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .add-form-block-table {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .add-form-block-table button:nth-child(1) {\r\n    width: 4.8em;\r\n    height: 4.2em;\r\n  }\r\n\r\n  .add-form-block-table input, select {\r\n    width: 14em;\r\n    height: 2.4em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .add-form-block-table input:nth-child(2) {\r\n    width: 20em;\r\n  }\r\n\r\n  .add-form-block-table textarea {\r\n    width: 22em;\r\n    height: 12em;\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .add-form-block-table button:nth-child(6) {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30895,13 +30891,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropDown", function() { return DropDown; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var _icons_arrow_down_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(28);
-/* harmony import */ var _icons_arrow_up_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
-/* harmony import */ var _icons_blocks_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(30);
-/* harmony import */ var _icons_tables_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(31);
-/* harmony import */ var _DropDown_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(32);
-/* harmony import */ var _DropDown_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_DropDown_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _tools_Filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _tools_Sort__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(27);
+/* harmony import */ var _tools_ThemeSelection__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32);
+/* harmony import */ var _icons_arrow_down_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(37);
+/* harmony import */ var _icons_arrow_up_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(38);
+/* harmony import */ var _icons_blocks_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(39);
+/* harmony import */ var _icons_tables_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(40);
+/* harmony import */ var _DropDown_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(41);
+/* harmony import */ var _DropDown_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_DropDown_css__WEBPACK_IMPORTED_MODULE_8__);
+
+
 
 
 
@@ -30910,7 +30910,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var DropDown = function (_a) {
-    var data = _a.data, setData = _a.setData, setNewsView = _a.setNewsView, addNewsItem = _a.addNewsItem, setAddNewsItem = _a.setAddNewsItem, setFilterText = _a.setFilterText;
+    var data = _a.data, setData = _a.setData, setNewsView = _a.setNewsView, addNewsItem = _a.addNewsItem, setAddNewsItem = _a.setAddNewsItem, setFilterText = _a.setFilterText, store = _a.store, setStore = _a.setStore;
     var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false), onDropDown = _b[0], setOnDropDown = _b[1];
     var changeDropDown = function () {
         setOnDropDown(onDropDown ? false : true);
@@ -30919,25 +30919,27 @@ var DropDown = function (_a) {
     };
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'dropDown-block' },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'dropDown-btn', onClick: function () { changeDropDown(); } }, onDropDown ?
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'arrow-img', src: _icons_arrow_up_svg__WEBPACK_IMPORTED_MODULE_3__["default"], alt: "icon" })
-            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'arrow-img', src: _icons_arrow_down_svg__WEBPACK_IMPORTED_MODULE_2__["default"], alt: "icon" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'arrow-img', src: _icons_arrow_up_svg__WEBPACK_IMPORTED_MODULE_5__["default"], alt: "icon" })
+            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'arrow-img', src: _icons_arrow_down_svg__WEBPACK_IMPORTED_MODULE_4__["default"], alt: "icon" })),
         onDropDown ?
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'filters-block' },
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filter__WEBPACK_IMPORTED_MODULE_1__["Filter"], { setFilterText: setFilterText }),
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tools_Filter__WEBPACK_IMPORTED_MODULE_1__["Filter"], { setFilterText: setFilterText }),
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tools_Sort__WEBPACK_IMPORTED_MODULE_2__["Sort"], { data: data, setData: setData }),
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tools_ThemeSelection__WEBPACK_IMPORTED_MODULE_3__["Theme"], { store: store, setStore: setStore }),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'addNewsBtn' },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setAddNewsItem(addNewsItem === false ? true : false); } },
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, addNewsItem ? 'cancel' : 'add news'))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "add news"))),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'changeViewBtn' },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setNewsView('isList'); } },
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'change-view-icon', src: _icons_blocks_svg__WEBPACK_IMPORTED_MODULE_4__["default"], alt: "icon" })),
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_blocks_svg__WEBPACK_IMPORTED_MODULE_6__["default"], alt: "icon" })),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { setNewsView('isTable'); } },
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'change-view-icon', src: _icons_tables_svg__WEBPACK_IMPORTED_MODULE_5__["default"], alt: "icon" }))))
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_tables_svg__WEBPACK_IMPORTED_MODULE_7__["default"], alt: "icon" }))))
             : ''));
 };
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30945,7 +30947,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Filter", function() { return Filter; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Filter_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
+/* harmony import */ var _Filter_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
 /* harmony import */ var _Filter_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Filter_css__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -30954,18 +30956,18 @@ var Filter = function (_a) {
     var searchRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
     var getFilterText = function () { return setFilterText(searchRef.current.value.toUpperCase()); };
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'search-block' },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { className: 'search-input', ref: searchRef, type: "text", placeholder: "title / theme" }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { className: 'search-input', ref: searchRef, type: "text", placeholder: "title / description" }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'search-submit', type: 'submit', onClick: function () { getFilterText(); } },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "search"))));
 };
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(27);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(26);
 
             content = content.__esModule ? content.default : content;
 
@@ -30985,12 +30987,12 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
@@ -31002,12 +31004,55 @@ ___CSS_LOADER_EXPORT___.push([module.i, ".search-block {\r\n  margin: auto 1em;\
 
 
 /***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sort", function() { return Sort; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons_sort_up_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
+/* harmony import */ var _icons_sort_down_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29);
+/* harmony import */ var _Sort_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
+/* harmony import */ var _Sort_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Sort_css__WEBPACK_IMPORTED_MODULE_3__);
+var __spreadArrays = (undefined && undefined.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+
+
+
+var Sort = function (_a) {
+    var data = _a.data, setData = _a.setData;
+    var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false), currentIcon = _b[0], setCurrentIcon = _b[1];
+    var sorted = function (key) {
+        var sortByDate = __spreadArrays(data).sort(function (a, b) {
+            var x = a[key];
+            var y = b[key];
+            return ((x < y) ? -1 : -1);
+        });
+        setData(sortByDate);
+        setCurrentIcon(currentIcon ? false : true);
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'sort-block' },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { title: "Sorting by date", className: 'search-btn', onClick: function () { sorted('date'); } }, currentIcon ?
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_sort_down_svg__WEBPACK_IMPORTED_MODULE_2__["default"], alt: "icon" })
+            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_sort_up_svg__WEBPACK_IMPORTED_MODULE_1__["default"], alt: "icon" }))));
+};
+
+
+/***/ }),
 /* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/arrow-down.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/sort-up.svg");
 
 /***/ }),
 /* 29 */
@@ -31015,30 +31060,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/arrow-up.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/sort-down.svg");
 
 /***/ }),
 /* 30 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/blocks.svg");
-
-/***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/tables.svg");
-
-/***/ }),
-/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(33);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(31);
 
             content = content.__esModule ? content.default : content;
 
@@ -31058,21 +31087,80 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".dropDown-block {\r\n  width: 80em;\r\n  margin: 4em auto;\r\n  border: 0 solid;\r\n  border-radius: 0.2em;\r\n  background-color: #fff;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.filters-block {\r\n  width: 54em;\r\n  height: 6em;\r\n  margin: auto;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  border: none;\r\n  padding: auto;\r\n}\r\n\r\n.dropDown-btn {\r\n  width: 3.6em;\r\n  height: 2.4em;\r\n  float: right;\r\n  background-color: #fff;\r\n  border: 3px solid;\r\n  border-color: #2B4F81;\r\n  border-radius: 0.4em;\r\n  cursor: pointer;\r\n}\r\n\r\n.arrow-img {\r\n  width: 2em;\r\n  height: 1.8em;\r\n  margin: auto;\r\n}\r\n\r\n.addNewsBtn {\r\n  width: 5em;\r\n  margin: auto 1em;\r\n}\r\n\r\n.addNewsBtn button {\r\n  width: 6em;\r\n  height: 2em;\r\n  margin: 0.4em 0;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 500;\r\n  cursor: pointer;\r\n}\r\n\r\n.addNewsBtn>button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.changeViewBtn {\r\n  width: 6.4em;\r\n  height: 4em;\r\n  margin: auto 1em;\r\n  align-items: center;\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.changeViewBtn button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.changeViewBtn button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.change-view-icon {\r\n  width: 1.7em;\r\n  height: 1.7em;\r\n  margin: 0.2em auto;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .dropDown-block {\r\n    width: 74em;\r\n    margin: 9vw;\r\n  }\r\n\r\n  .filters-block {\r\n    width: 60em;\r\n    height: 22em;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    flex-wrap: wrap;\r\n    flex-direction: row;\r\n  }\r\n\r\n  .addNewsBtn button {\r\n    width: 20em;\r\n    height: 8em;\r\n    margin-right: 7em;\r\n  }\r\n\r\n  .addNewsBtn span {\r\n    font-size: 3em;\r\n  }\r\n\r\n  .changeViewBtn {\r\n    width: 20em;\r\n  }\r\n\r\n  .changeViewBtn button {\r\n    width: 10em;\r\n    height: 8em;\r\n  }\r\n\r\n  .change-view-icon {\r\n    width: 4em;\r\n    height: 4em;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".sort-block {\r\n  margin: auto 1em;\r\n}\r\n\r\n.sort-block button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.sort-block button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .sort-block {\r\n    margin: auto;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .sort-block button {\r\n    width: 6em;\r\n    height: 6em;\r\n    font-size: 0.4em;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Theme", function() { return Theme; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons_toggle_up_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
+/* harmony import */ var _icons_toggle_down_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(34);
+/* harmony import */ var _ThemeSelection_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(35);
+/* harmony import */ var _ThemeSelection_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_ThemeSelection_css__WEBPACK_IMPORTED_MODULE_3__);
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+
+
+var Theme = function (_a) {
+    var store = _a.store, setStore = _a.setStore;
+    var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false), hover = _b[0], setHover = _b[1];
+    var res = ['Politics', 'IT', 'Sport', 'Travel', 'Business'];
+    var fnClick = function (e, i) {
+        var _a;
+        return setStore(__assign(__assign({}, store), (_a = {}, _a[i] = e, _a)));
+    };
+    var toggleOnHover = function () { return setHover(true); };
+    var toggleOffHover = function () { return setHover(false); };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'checkbox-block' },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onMouseEnter: toggleOnHover, onMouseLeave: toggleOffHover }, hover ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_toggle_up_svg__WEBPACK_IMPORTED_MODULE_1__["default"], alt: "icon" })
+            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_toggle_down_svg__WEBPACK_IMPORTED_MODULE_2__["default"], alt: "icon" })),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", { className: hover ? 'checkbox-block-on' : 'checkbox-block-off', onMouseEnter: toggleOnHover, onMouseLeave: toggleOffHover }, res.map(function (i) { return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null,
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { className: 'checkbox', name: i, onClick: function (e) {
+                    fnClick(e.target.checked, i);
+                }, onChange: function (e) {
+                    fnClick(e.target.checked, i);
+                }, type: "checkbox", checked: store[i] }),
+            i)); }))));
+};
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/toggle-up.svg");
 
 /***/ }),
 /* 34 */
@@ -31080,17 +31168,139 @@ ___CSS_LOADER_EXPORT___.push([module.i, ".dropDown-block {\r\n  width: 80em;\r\n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/toggle-down.svg");
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(14);
+            var content = __webpack_require__(36);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+/* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".checkbox-block {\r\n  width: 5em;\r\n  margin: 2em 0 2em 1em;\r\n}\r\n\r\n.checkbox-block-on {\r\n  width: 5em;\r\n  height: 6em;\r\n  display: flex;\r\n  flex-flow: column;\r\n  background-color: #fff;\r\n  border-radius: 0.2em;\r\n  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);\r\n  cursor: pointer;\r\n}\r\n\r\n.checkbox-block-on label {\r\n  margin: auto 0;\r\n  font-size: 13px;\r\n}\r\n\r\n.checkbox-block button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.checkbox-block button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.checkbox-block-off {\r\n  display: none;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .checkbox-block {\r\n    width: 2em;\r\n    margin: auto;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .checkbox-block button {\r\n    width: 6em;\r\n    height: 6em;\r\n    font-size: 0.4em;\r\n  }\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/arrow-down.svg");
+
+/***/ }),
+/* 38 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/arrow-up.svg");
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/blocks.svg");
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "images/tables.svg");
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(14);
+            var content = __webpack_require__(42);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".dropDown-block {\r\n  width: 80em;\r\n  margin: 4em auto;\r\n  border: 0 solid;\r\n  border-radius: 0.2em;\r\n  background-color: #fff;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.filters-block {\r\n  width: 54em;\r\n  height: 6em;\r\n  margin: auto;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  border: none;\r\n  padding: auto;\r\n}\r\n\r\n.dropDown-btn {\r\n  width: 3.6em;\r\n  height: 2.4em;\r\n  float: right;\r\n  background-color: #fff;\r\n  border: 3px solid;\r\n  border-color: #2B4F81;\r\n  border-radius: 0.4em;\r\n  cursor: pointer;\r\n}\r\n\r\n.arrow-img {\r\n  width: 2em;\r\n  height: 1.8em;\r\n  margin: auto;\r\n}\r\n\r\n.addNewsBtn {\r\n  width: 5em;\r\n  margin: auto 1em;\r\n}\r\n\r\n.addNewsBtn button {\r\n  width: 6em;\r\n  height: 2em;\r\n  margin: 0.4em 0;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 500;\r\n  cursor: pointer;\r\n}\r\n\r\n.addNewsBtn>button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.changeViewBtn {\r\n  width: 6.4em;\r\n  height: 4em;\r\n  margin: auto 1em;\r\n  align-items: center;\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.changeViewBtn button {\r\n  width: 2.8em;\r\n  height: 2.4em;\r\n  background-color: #2B4F81;\r\n  color: #fff;\r\n  border: none;\r\n  border-radius: 0.2em;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n}\r\n\r\n.changeViewBtn button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n/* .change-view-icon {\r\n  width: 1.7em;\r\n  height: 1.em;\r\n  margin: 0.2em auto;\r\n} */\r\n@media screen and (max-width: 420px) {\r\n  .dropDown-block {\r\n    width: 74em;\r\n    margin: 9vw;\r\n  }\r\n\r\n  .filters-block {\r\n    width: 60em;\r\n    height: 22em;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    flex-wrap: wrap;\r\n    flex-direction: row;\r\n  }\r\n\r\n  .addNewsBtn {\r\n    width: 16em;\r\n  }\r\n\r\n  .addNewsBtn button {\r\n    width: 20em;\r\n    height: 8em;\r\n    margin-right: 7em;\r\n  }\r\n\r\n  .addNewsBtn span {\r\n    font-size: 3em;\r\n  }\r\n\r\n  .changeViewBtn {\r\n    width: 20em;\r\n  }\r\n\r\n  .changeViewBtn button {\r\n    width: 10em;\r\n    height: 8em;\r\n  }\r\n\r\n  .change-view-icon {\r\n    width: 4em;\r\n    height: 4em;\r\n  }\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListNews", function() { return ListNews; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _forms_EditForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
-/* harmony import */ var _ListNews_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(38);
+/* harmony import */ var _forms_EditForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(44);
+/* harmony import */ var _ListNews_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(47);
 /* harmony import */ var _ListNews_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ListNews_css__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 var ListNews = function (_a) {
-    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView;
+    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView, store = _a.store;
     var initialFormState = {
         id: 0,
         title: '',
@@ -31100,6 +31310,15 @@ var ListNews = function (_a) {
     };
     var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialFormState), currentNews = _b[0], setCurrentNews = _b[1];
     var _c = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0), editing = _c[0], setEditing = _c[1];
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+        var storage = localStorage.getItem('data');
+        if (storage) {
+            setData(JSON.parse(storage));
+        }
+    }, []);
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+        localStorage.setItem('data', JSON.stringify(data));
+    });
     var deleteNews = function (id) {
         setEditing(0);
         setData(data.filter(function (news) { return news.id !== id; }));
@@ -31125,25 +31344,28 @@ var ListNews = function (_a) {
     var itemsToDisplay = filterText ? filteredItems : data;
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'list-block' },
         !filteredItems.length && (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " News is not found ")),
-        itemsToDisplay.map(function (item) { return (editing === item.id ?
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
-            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", { className: 'list-item', key: item.id },
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.title)),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, item.theme)),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.date)),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.description)),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'list-btn', onClick: function () { editRow(item, item.id); } }, "edit"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'list-btn', onClick: function () { deleteNews(item.id); } }, "delete")))); })));
+        itemsToDisplay.map(function (item, id) { return (editing === item.id ?
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { key: item.id, updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
+            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, store[item.theme] ?
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", { className: 'list-item', key: id },
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.title)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, item.theme)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.date)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.description)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'list-btn', onClick: function () { editRow(item, item.id); } }, "edit"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'list-btn', onClick: function () { if (window.confirm('Are you sure wish to delete this news?'))
+                                deleteNews(item.id); } }, "delete")))
+                : '')); })));
 };
 
 
 /***/ }),
-/* 35 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31151,7 +31373,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditForm", function() { return EditForm; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _EditForm_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
+/* harmony import */ var _EditForm_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(45);
 /* harmony import */ var _EditForm_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_EditForm_css__WEBPACK_IMPORTED_MODULE_1__);
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -31182,8 +31404,13 @@ var EditForm = function (_a) {
             updateNews(item.id, item);
         } },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'title', value: item.title, onChange: handleInputChange }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'theme', value: item.theme, onChange: handleInputChange }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'date', value: item.date, onChange: handleInputChange }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", { name: 'theme', value: item.theme, onChange: handleInputChange },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Politics' }, "Politics"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'IT' }, "IT"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Sport' }, "Sport"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Travel' }, "Travel"),
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", { value: 'Business' }, "Business")),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { type: "text", name: 'date', value: item.date }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", { name: 'description', value: item.description, rows: 8, cols: 30, onChange: handleInputChange }),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Update news"),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onClick: function () { return setEditing(0); }, className: "button muted-button" }, "Cancel")));
@@ -31191,11 +31418,11 @@ var EditForm = function (_a) {
 
 
 /***/ }),
-/* 36 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(37);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(46);
 
             content = content.__esModule ? content.default : content;
 
@@ -31215,28 +31442,28 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 37 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".edit-form-block-list {\r\n  width: 35em;\r\n  height: 32em;\r\n  margin: 2em;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.edit-form-block-list:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.edit-form-block-list input {\r\n  width: 20em;\r\n  height: 2em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-list textarea {\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-list input:nth-child(1) {\r\n  width: 31em;\r\n  margin-top: 1em;\r\n}\r\n\r\n.edit-form-block-list button {\r\n  width: 36em;\r\n  height: 2.8em;\r\n  margin: 0.2em auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.edit-form-block-list button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.edit-form-block-table {\r\n  width: 70em;\r\n  height: 20em;\r\n  margin: 2em auto;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.edit-form-block-table:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.edit-form-block-table input {\r\n  width: 20em;\r\n  height: 1.2em;\r\n  margin: 0 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-table textarea {\r\n  height: 4em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-table input:nth-child(1) {\r\n  width: 31em;\r\n  margin-top: 1em;\r\n}\r\n\r\n.edit-form-block-table button {\r\n  width: 73.4em;\r\n  height: 2em;\r\n  margin: 0 auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.edit-form-block-table button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .edit-form-block-list {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .edit-form-block-list input {\r\n    width: 14em;\r\n    /* margin-bottom: -10em; */\r\n    font-size: 1em;\r\n  }\r\n\r\n  .edit-form-block-list input:nth-child(1) {\r\n    width: 20em;\r\n  }\r\n\r\n  .edit-form-block-list textarea {\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .edit-form-block-list button {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .edit-form-block-table {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .edit-form-block-table input {\r\n    width: 14em;\r\n    height: 2em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .edit-form-block-table input:nth-child(1) {\r\n    width: 20em;\r\n  }\r\n\r\n  .edit-form-block-table textarea {\r\n    height: 12em;\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .edit-form-block-table button {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".edit-form-block-list {\r\n  width: 35em;\r\n  height: 32em;\r\n  margin: 2em;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.edit-form-block-list:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.edit-form-block-list input, select {\r\n  width: 20em;\r\n  height: 2em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-list textarea {\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-list input:nth-child(1) {\r\n  width: 31em;\r\n  margin-top: 1em;\r\n}\r\n\r\n.edit-form-block-list button {\r\n  width: 36em;\r\n  height: 2.8em;\r\n  margin: 0.2em auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.edit-form-block-list button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n.edit-form-block-table {\r\n  width: 70em;\r\n  height: 20em;\r\n  margin: 2em auto;\r\n  display: grid;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.edit-form-block-table:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.edit-form-block-table input, select {\r\n  width: 20em;\r\n  height: 2em;\r\n  margin: 0 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-table textarea {\r\n  height: 3.6em;\r\n  margin: 0.2em 1em;\r\n  border: 2px solid;\r\n  border-radius: 0.2em;\r\n  border-color: #2B4F81;\r\n}\r\n\r\n.edit-form-block-table input:nth-child(1) {\r\n  width: 31em;\r\n  margin-top: 1em;\r\n}\r\n\r\n.edit-form-block-table button {\r\n  width: 73.4em;\r\n  height: 2em;\r\n  margin: 0 auto -1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #4b77be;\r\n  cursor: pointer;\r\n}\r\n\r\n.edit-form-block-table button:hover {\r\n  background-color: gray;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .edit-form-block-list {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .edit-form-block-list input, select {\r\n    width: 14em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .edit-form-block-list input:nth-child(1) {\r\n    width: 20em;\r\n  }\r\n\r\n  .edit-form-block-list textarea {\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .edit-form-block-list button {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .edit-form-block-table {\r\n    width: 24em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .edit-form-block-table input, select {\r\n    width: 14em;\r\n    height: 2em;\r\n    font-size: 1em;\r\n  }\r\n\r\n  .edit-form-block-table input:nth-child(1) {\r\n    width: 20em;\r\n  }\r\n\r\n  .edit-form-block-table textarea {\r\n    height: 12em;\r\n    font-size: 1.2em;\r\n    margin-bottom: 1em;\r\n  }\r\n\r\n  .edit-form-block-table button {\r\n    width: 22em;\r\n    height: 4em;\r\n    font-size: 1em;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 38 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(39);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(48);
 
             content = content.__esModule ? content.default : content;
 
@@ -31256,24 +31483,24 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 39 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".list-block {\r\n  display: inline-flex;\r\n  align-content: space-around;\r\n  justify-content: center;\r\n  flex-wrap: wrap;\r\n  flex-direction: row;\r\n}\r\n\r\n.list-item {\r\n  width: 30em;\r\n  height: 32em;\r\n  margin: 2em;\r\n  padding: 0.2em 2em;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-family: system-ui;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.list-item:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.list-item li:nth-child(3) {\r\n  color: gray;\r\n}\r\n\r\n.list-item li:nth-child(5) {\r\n  \r\n}\r\n\r\n.list-btn {\r\n  width: 5.5em;\r\n  height: 2em;\r\n  margin: 0 1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #2B4F81;\r\n  cursor: pointer;\r\n}\r\n\r\n.list-btn:hover {\r\n  background-color: gray;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .list-item {\r\n    width: 20em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .list-item button {\r\n    font-size: 0.8em;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".list-block {\r\n  display: inline-flex;\r\n  align-content: space-around;\r\n  justify-content: center;\r\n  flex-wrap: wrap;\r\n  flex-direction: row;\r\n}\r\n\r\n.list-item {\r\n  width: 30em;\r\n  height: 32em;\r\n  margin: 2em;\r\n  padding: 0.2em 2em;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-family: system-ui;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.list-item:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.list-item li:nth-child(3) {\r\n  color: gray;\r\n}\r\n\r\n.list-item li:nth-child(2) {\r\n  color: #616161;\r\n}\r\n\r\n.list-btn {\r\n  width: 5.5em;\r\n  height: 2em;\r\n  margin: 0 1em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #2B4F81;\r\n  cursor: pointer;\r\n}\r\n\r\n.list-btn:hover {\r\n  background-color: gray;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .list-item {\r\n    width: 20em;\r\n    height: 38em;\r\n    font-size: 2.8em;\r\n  }\r\n\r\n  .list-item button {\r\n    font-size: 0.8em;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 40 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -31281,14 +31508,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableNews", function() { return TableNews; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _forms_EditForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
-/* harmony import */ var _TableNews_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(41);
+/* harmony import */ var _forms_EditForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(44);
+/* harmony import */ var _TableNews_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(50);
 /* harmony import */ var _TableNews_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_TableNews_css__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 var TableNews = function (_a) {
-    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView;
+    var data = _a.data, setData = _a.setData, filterText = _a.filterText, newsView = _a.newsView, store = _a.store;
     var initialFormState = {
         id: 0,
         title: '',
@@ -31298,6 +31525,15 @@ var TableNews = function (_a) {
     };
     var _b = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialFormState), currentNews = _b[0], setCurrentNews = _b[1];
     var _c = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0), editing = _c[0], setEditing = _c[1];
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+        var storage = localStorage.getItem('data');
+        if (storage) {
+            setData(JSON.parse(storage));
+        }
+    }, []);
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+        localStorage.setItem('data', JSON.stringify(data));
+    });
     var deleteNews = function (id) {
         setEditing(0);
         setData(data.filter(function (news) { return news.id !== id; }));
@@ -31324,30 +31560,34 @@ var TableNews = function (_a) {
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'table-block' },
         !filteredItems.length && (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " News is not found ")),
         itemsToDisplay.map(function (item) { return (editing === item.id ?
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
-            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", { className: 'table-item', key: item.id },
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.title)),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, item.theme)),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'td-btn', onClick: function () { editRow(item, item.id); } }, "edit"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'td-btn', onClick: function () { deleteNews(item.id); } }, "delete"))),
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.description)),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.date))))); })));
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { key: item.id, updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
+            :
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, store[item.theme] ?
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", { className: 'table-item', key: item.id },
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null,
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.title)),
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, item.theme)),
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'td-btn', onClick: function () { editRow(item, item.id); } }, "edit"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'td-btn', onClick: function () { if (window.confirm('Are you sure wish to delete this news?'))
+                                        deleteNews(item.id); } }, "delete"))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null,
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.description)),
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", { className: 'td-item-date' }, item.date))))
+                    : '')); })));
 };
 
 
 /***/ }),
-/* 41 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(42);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(51);
 
             content = content.__esModule ? content.default : content;
 
@@ -31367,28 +31607,28 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 42 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".table-block {\r\n  margin: 8em none;\r\n  padding: 2em 0;\r\n}\r\n\r\n.table-item {\r\n  width: 70em;\r\n  height: 18em;\r\n  margin: 2em auto;\r\n  padding: 0.2em 2em;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-family: system-ui;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.table-item:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.table-item td:nth-child(2) {\r\n  margin: 0 1em;\r\n  text-align: center;\r\n  color: gray;\r\n}\r\n\r\n.td-btn {\r\n  width: 5.5em;\r\n  height: 2em;\r\n  margin: 0.3em 0 0 2em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #2B4F81;\r\n}\r\n\r\n.td-btn:hover {\r\n  background-color: gray;\r\n  cursor: pointer;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .table-item {\r\n    width: 26em;\r\n    height: 30em;\r\n    font-size: 2.8em;\r\n    margin: 1em;\r\n  }\r\n\r\n  .table-item button {\r\n    font-size: 0.6em;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".table-block {\r\n  margin: 8em none;\r\n  padding: 2em 0;\r\n}\r\n\r\n.table-item {\r\n  width: 70em;\r\n  height: 18em;\r\n  margin: 2em auto;\r\n  padding: 0.2em 2em;\r\n  background-color: #fff;\r\n  border-radius: 0.5em;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\r\n  text-align: initial;\r\n  list-style: none;\r\n  font-family: system-ui;\r\n  font-size: 0.9em;\r\n  font-weight: 550;\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s;\r\n}\r\n\r\n.table-item:hover {\r\n  cursor: pointer;\r\n  transform: scale(1.03);\r\n  -webkit-transition: 0.2s ease-in-out;\r\n  -moz-transition: 0.2s ease-in-out;\r\n  -o-transition: 0.2s ease-in-out;\r\n  transition: 0.2s ease-in-out;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);\r\n}\r\n\r\n.table-item td:nth-child(2) {\r\n  margin: 0 1em;\r\n  text-align: center;\r\n  color: gray;\r\n}\r\n\r\n.td-item-date {\r\n  width: max-content;\r\n  margin-right: -4em;\r\n}\r\n\r\n.td-btn {\r\n  width: 5.5em;\r\n  height: 2em;\r\n  margin: 0.3em 0 0 2em;\r\n  border: none;\r\n  border-radius: 0.1em;\r\n  color: #fff;\r\n  background-color: #2B4F81;\r\n}\r\n\r\n.td-btn:hover {\r\n  background-color: gray;\r\n  cursor: pointer;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .table-item {\r\n    width: 26em;\r\n    height: 30em;\r\n    font-size: 2.8em;\r\n    margin: 1em;\r\n  }\r\n\r\n  .table-item button {\r\n    font-size: 0.6em;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 43 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(44);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(53);
 
             content = content.__esModule ? content.default : content;
 
@@ -31408,34 +31648,28 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 44 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".main-block {\r\n  margin: auto;\r\n  padding: 1em;\r\n}\r\n\r\n.items-block {\r\n  text-align: center;\r\n  margin: auto;\r\n  justify-content: center;\r\n}\r\n\r\n.night {\r\n  background-color: #161b22;\r\n}\r\n\r\n.night header {\r\n  background-color: #21262d;\r\n  color: #fff;\r\n}\r\n\r\n.night ul {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night table {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night form {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night>.dropDown-block {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night input {\r\n  background-color: #000010;\r\n  color: #fff;\r\n}\r\n\r\n.night textarea {\r\n  background-color: #000010;\r\n  color: #fff;\r\n}\r\n\r\n.night button {\r\n  background-color: #21262d;\r\n  border: none;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .night {\r\n    width: 80em;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".main-block {\r\n  margin: auto;\r\n  padding: 1em;\r\n}\r\n\r\n.items-block {\r\n  text-align: center;\r\n  margin: auto;\r\n  justify-content: center;\r\n}\r\n\r\n.night {\r\n  min-height: 900px;\r\n  background-color: #161b22;\r\n}\r\n\r\n.night header {\r\n  background-color: #21262d;\r\n  color: #fff;\r\n}\r\n\r\n.night ul {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night table {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night form {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night>.dropDown-block {\r\n  background-color: #000010;\r\n  color: #d4e2f8;\r\n}\r\n\r\n.night input {\r\n  background-color: #000010;\r\n  color: #fff;\r\n}\r\n\r\n.night select {\r\n  background-color: #000010;\r\n  color: #fff;\r\n}\r\n\r\n.night textarea {\r\n  background-color: #000010;\r\n  color: #fff;\r\n}\r\n\r\n.night button {\r\n  background-color: #21262d;\r\n  border: none;\r\n}\r\n\r\n@media screen and (max-width: 420px) {\r\n  .night {\r\n    width: 80em;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 45 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("[{\"id\":1,\"title\":\"React Native: The First Choice of Mobile App Developers and Businesses\",\"theme\":\"IT\",\"date\":\"29.12.2020\",\"description\":\"Let’s discuss why mobile app developers select React Native for application development over other cross-platform frameworks. While few users continue to work with the Native development approach, those who want to succeed in their business have started exploring new opportunities. One such occasion in this technically advanced world is to turn toward cross - platform frameworks.\"},{\"id\":2,\"title\":\"Android interop with SWIG (a guide). From simple to weird. Part 1 — simple\",\"theme\":\"sad\",\"date\":\"01.11.2020\",\"description\":\"SWIG is a tool for generating cross-language interfaces - it provides interoperability of C++ and other languages (C++ and Java in our case). SWIG just simplifies and automizes cross - language interaction; otherwise, you may end up with thousands of lines of handwritten JNI code - but SWIG covers this for you.\"},{\"id\":3,\"title\":\"7 Best Practices Every Budding React.JS Developer Must Follow to Excel\",\"theme\":\"IT\",\"date\":\"15.10.2020\",\"description\":\"With the advancement in web technology, the entire globe is sliding towards the online tech sphere. The globe around us is going tech-centric day by day and thus the demand for front-end designers and developers also.\"},{\"id\":4,\"title\":\"ONLYOFFICE Community Server: how bugs contribute to the emergence of security problems\",\"theme\":\"bad\",\"date\":\"17.12.2020\",\"description\":\"Server-side network applications rarely get the chance to join the ranks of our reviews of errors found in open source software. This is probably due to their popularity. After all, we try to pay attention to the projects that readers themselves offer us. At the same time, servers often perform very important functions, but their performance and benefits remain invisible to most users. So, by chance, the code of ONLYOFFICE Community Server was checked.\"},{\"id\":5,\"title\":\"Startups going global: a guide to Product Hunt\",\"theme\":\"IT\",\"date\":\"02.01.2021\",\"description\":\"Product Hunt is a Y-combinator backed discovery platform, founded by Ryan Hoover in 2013. Conceived as an email list, it has gone on to become one of the most popular directories, raised $7.5 million in backing and was acquired by AngelList — a social network for entrepreneurs — in December 2016.\"},{\"id\":6,\"title\":\"Don't spoil Desktop Software Engineers with your Mobile First solutions, think about it\",\"theme\":\"IT\",\"date\":\"25.08.2020\",\"description\":\"Once upon a time, my girlfriend started using Instagram. She asked me to sign up for it and subscribe to it. I tried — I couldn't do it because you couldn't register at Instagram from a desktop computer. I then thought — how weird people are. Well, what kind of fool would make a software product that can't be used with a normal computer?\"}]");
-
-/***/ }),
-/* 46 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(11);
-            var content = __webpack_require__(47);
+var api = __webpack_require__(14);
+            var content = __webpack_require__(55);
 
             content = content.__esModule ? content.default : content;
 
@@ -31455,31 +31689,31 @@ var update = api(content, options);
 module.exports = content.locals || {};
 
 /***/ }),
-/* 47 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(false);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "body{\n  margin: auto;\n  width:auto;\n  height: auto;\n  font-family: serif;\n  background-color: #F8F8F8;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "body {\r\n  margin: auto;\r\n  width: auto;\r\n  height: auto;\r\n  font-family: serif;\r\n  background-color: #F8F8F8;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\r\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\r\n    sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n}\r\n\r\ncode {\r\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\r\n    monospace;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
-/* 48 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var reportWebVitals = function (onPerfEntry) {
     if (onPerfEntry && onPerfEntry instanceof Function) {
-        __webpack_require__.e(/* import() */ 1).then(__webpack_require__.bind(null, 49)).then(function (_a) {
+        __webpack_require__.e(/* import() */ 1).then(__webpack_require__.bind(null, 57)).then(function (_a) {
             var getCLS = _a.getCLS, getFID = _a.getFID, getFCP = _a.getFCP, getLCP = _a.getLCP, getTTFB = _a.getTTFB;
             getCLS(onPerfEntry);
             getFID(onPerfEntry);
