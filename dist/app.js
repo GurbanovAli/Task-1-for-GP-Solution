@@ -31144,13 +31144,13 @@ var Theme = function (_a) {
     return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'checkbox-block' },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { onMouseEnter: toggleOnHover, onMouseLeave: toggleOffHover }, hover ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_toggle_up_svg__WEBPACK_IMPORTED_MODULE_1__["default"], alt: "icon" })
             : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", { className: 'icon-img', src: _icons_toggle_down_svg__WEBPACK_IMPORTED_MODULE_2__["default"], alt: "icon" })),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", { className: hover ? 'checkbox-block-on' : 'checkbox-block-off', onMouseEnter: toggleOnHover, onMouseLeave: toggleOffHover }, res.map(function (i) { return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null,
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { className: 'checkbox', name: i, onClick: function (e) {
-                    fnClick(e.target.checked, i);
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", { className: hover ? 'checkbox-block-on' : 'checkbox-block-off', onMouseEnter: toggleOnHover, onMouseLeave: toggleOffHover }, res.map(function (item, id) { return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", { key: id },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { className: 'checkbox', name: item, onClick: function (e) {
+                    fnClick(e.target.checked, item);
                 }, onChange: function (e) {
-                    fnClick(e.target.checked, i);
-                }, type: "checkbox", checked: store[i] }),
-            i)); }))));
+                    fnClick(e.target.checked, item);
+                }, type: "checkbox", checked: store[item] }),
+            item)); }))));
 };
 
 
@@ -31346,8 +31346,8 @@ var ListNews = function (_a) {
         !filteredItems.length && (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " News is not found ")),
         itemsToDisplay.map(function (item, id) { return (editing === item.id ?
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_EditForm__WEBPACK_IMPORTED_MODULE_1__["EditForm"], { key: item.id, updateNews: updateNews, setEditing: setEditing, currentNews: currentNews, newsView: newsView })
-            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, store[item.theme] ?
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", { className: 'list-item', key: id },
+            : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { key: item.id }, store[item.theme] ?
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", { className: 'list-item' },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, item.title)),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null,
@@ -31360,7 +31360,7 @@ var ListNews = function (_a) {
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'list-btn', onClick: function () { editRow(item, item.id); } }, "edit"),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", { className: 'list-btn', onClick: function () { if (window.confirm('Are you sure wish to delete this news?'))
                                 deleteNews(item.id); } }, "delete")))
-                : '')); })));
+                : null)); })));
 };
 
 
